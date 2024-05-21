@@ -1,5 +1,5 @@
 CREATE TABLE Users (
-    user_id INTEGER NOT NULL,
+    user_id INTEGER NOT NULL AUTO_INCREMENT,
     email VARCHAR(64) NOT NULL,
     password VARCHAR(64) NOT NULL,
     address VARCHAR(255),
@@ -8,7 +8,7 @@ CREATE TABLE Users (
 );
 
 CREATE TABLE Shoes (
-    shoes_id INTEGER NOT NULL,
+    shoes_id INTEGER NOT NULL AUTO_INCREMENT,
     name VARCHAR(64) NOT NULL,
     price INTEGER NOT NULL,
     release_date DATE NOT NULL,
@@ -16,13 +16,13 @@ CREATE TABLE Shoes (
 );
 
 CREATE TABLE Sizes (
-    size_id INTEGER NOT NULL,
+    size_id INTEGER NOT NULL AUTO_INCREMENT,
     size_number INTEGER NOT NULL,
     PRIMARY KEY (size_id)
 );
 
 CREATE TABLE ShoesOptions (
-    shoes_option_id INTEGER NOT NULL,
+    shoes_option_id INTEGER NOT NULL AUTO_INCREMENT,
     shoes_id INTEGER NOT NULL,
     size_id INTEGER NOT NULL,
     quantity INTEGER NOT NULL,
@@ -32,7 +32,7 @@ CREATE TABLE ShoesOptions (
 );
 
 CREATE TABLE Orders (
-    order_id INTEGER NOT NULL,
+    order_id INTEGER NOT NULL AUTO_INCREMENT,
     user_id INTEGER NOT NULL,
     shoes_option_id INTEGER NOT NULL,
     ordered_at DATETIME NOT NULL,
