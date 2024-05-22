@@ -86,7 +86,8 @@ public class UserProfile {
         }
     }
 
-    private static void showOrders(int userId) {
+    // ShowNewProducts -> 내 주문 보기 => pubic으로 변경
+    public static void showOrders(int userId) {
 
     }
 }
