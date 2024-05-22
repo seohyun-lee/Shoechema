@@ -28,7 +28,8 @@ public class OrderDetail {
                 String orderedAt = rs.getTimestamp("ordered_at").toString();
                 String deliveryAddress = rs.getString("delivery_address");
                 String deliverStatus = rs.getString("delivery_status");
-                String paymentType = rs.getString("")
+                String paymentType = rs.getString("");
+
                 System.out.println("——————주문내역——————");
                 System.out.println("주문번호: " + orderId);
                 System.out.println("주문일자: " + orderedAt);
@@ -43,7 +44,7 @@ public class OrderDetail {
                 System.out.println("결제 수단: " + paymentType);
                 System.out.println("결제 금액 " + price + "원");
             }  else {
-                System.out.println("존재하지 않는 두문. 다시 시도해주세요.");
+                System.out.println("존재하지 않는 상품. 다시 시도해주세요.");
             }
         } catch (SQLException e) {
             e.printStackTrace();
