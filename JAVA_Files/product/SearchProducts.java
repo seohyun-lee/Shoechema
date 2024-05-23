@@ -45,8 +45,6 @@ public class SearchProducts {
                     System.out.println(" 가격 : " + shoes.getPrice() + "원");
                     System.out.println("--------------------------------");
                 }
-            } catch (SQLException e) { // SQLException을 catch
-                e.printStackTrace();
             }
         } catch (SQLException e) {
             e.printStackTrace();
