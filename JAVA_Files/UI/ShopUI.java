@@ -4,7 +4,7 @@ public class ShopUI {
     public static void printShopBanner() { // 쇼핑몰 배너
         System.out.println();
         System.out.println("+==========================================================+");
-        System.out.println("|  한 걸음 한 걸음, 스타일리시하게.                             |");
+        System.out.println("|  한 걸음 한 걸음, 스타일리시하게.                            |");
         System.out.println("|  ____  _                     _                           |");
         System.out.println("| / ___|| |__   ___   ___  ___| |__   ___ _ __ ___   __ _  |");
         System.out.println("| \\___ \\| '_ \\ / _ \\ / _ \\/ __| '_ \\ / _ \\ '_ ` _ \\ / _` | |");
