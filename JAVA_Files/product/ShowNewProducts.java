@@ -15,7 +15,7 @@ public class ShowNewProducts {
         ShopUI.printNewProductsBanner();
 
         //SQL문 작성
-        String sql = "SELECT name, price, shoes_id FROM shoes ORDER BY release_date DESC LIMIT 5";
+        String sql = "SELECT name, price, shoes_id FROM Shoes ORDER BY release_date DESC LIMIT 5";
 
         //PreparedStatement 지정
         try (Connection conn = DatabaseConnection.getConnection();
