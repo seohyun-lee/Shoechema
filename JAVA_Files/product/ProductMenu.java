@@ -8,7 +8,7 @@ import java.util.Scanner;
 
 public class ProductMenu {
 
-    // SearchProducts, ShowNewProducts, ShowDetail에서 호출하는 메뉴
+    // SearchProducts, ShowNewProducts, ShowDetail에서 호출하는 메뉴 메소드
     public static void showProductMenu() {
         Scanner scanner = new Scanner(System.in);
         ShopUI.printProductMenuBanner();
@@ -24,12 +24,22 @@ public class ProductMenu {
         int menu = scanner.nextInt();
 
         switch (menu) {
-            case 1 -> ShowNewProducts.showNewProducts();
-            case 2 -> SearchProducts.searchProducts();
-            case 3 -> ShowDetail.showDetail();
-            case 4 -> UserProfile.showUserProfile();
-            case 5 -> MainPage.main();
-            default -> System.out.println("번호를 잘못 입력하셨습니다. 다시 입력해주세요.");
+            case 1:
+                ShowNewProducts.showNewProducts();
+                break;
+            case 2:
+                SearchProducts.searchProducts();
+                break;
+            case 3:
+                ShowDetail.showDetail();
+                break;
+            case 4:
+                UserProfile.showUserProfile();
+                break;
+            case 5: MainPage.main();
+                break;
+            default:
+                System.out.println("번호를 잘못 입력하셨습니다. 다시 입력해주세요.");
         }
         showProductMenu();
     }
