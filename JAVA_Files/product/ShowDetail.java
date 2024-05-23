@@ -18,7 +18,7 @@ public class ShowDetail {
         int shoesId = scanner.nextInt();
         scanner.nextLine();
         //SQL문 작성
-        String sql = "SELECT s.name, s.price, s.release_date, so.quantity, so.shoes_option_id, sz.size_number " +
+        String sql = "SELECT s.shoes_name, s.price, s.release_date, so.quantity, so.shoes_option_id, sz.size_number " +
                 "FROM Shoes s " +
                 "JOIN ShoesOptions so ON s.shoes_id = so.shoes_id " +
                 "JOIN Sizes sz ON so.size_id = sz.size_id " +
@@ -35,7 +35,7 @@ public class ShowDetail {
             if (rs.next()) {
                 //데이터 행 읽고 객체 생성
                 Shoes shoes = new Shoes();
-                shoes.setName(rs.getString("name")); //신발 이름
+                shoes.setShoesName(rs.getString("shoes_name")); //신발 이름
                 shoes.setPrice(rs.getInt("price")); //신발 가격
                 shoes.setReleaseDate(rs.getDate("release_date")); //신발 출시일
                 shoes.setQuantity(rs.getInt("quantity")); //재고
@@ -44,7 +44,7 @@ public class ShowDetail {
 
                 //콘솔에 출력
                 System.out.println("+—————————————————————————————+");
-                System.out.println(" 제품명 : " + shoes.getName());
+                System.out.println(" 제품명 : " + shoes.getShoesName());
                 System.out.println(" 가격 : " + shoes.getPrice() + "원");
                 System.out.println(" 사이즈 : " + shoes.getSizeNum());
                 System.out.println(" 제품 넘버 : " + shoes.getShoesOptId());

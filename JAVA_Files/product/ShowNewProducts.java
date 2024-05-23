@@ -15,7 +15,7 @@ public class ShowNewProducts {
         ShopUI.printNewProductsBanner();
 
         //SQL문 작성
-        String sql = "SELECT name, price, shoes_id FROM Shoes ORDER BY release_date DESC LIMIT 5";
+        String sql = "SELECT shoes_name, price, shoes_id FROM Shoes ORDER BY release_date DESC LIMIT 5";
 
         //PreparedStatement 지정
         try (Connection conn = DatabaseConnection.getConnection();
@@ -27,12 +27,12 @@ public class ShowNewProducts {
                 //데이터 행 읽고 객체 생성
                 Shoes shoes = new Shoes();
                 shoes.setShoesId(rs.getInt("shoes_id"));
-                shoes.setName(rs.getString("name"));
+                shoes.setShoesName(rs.getString("shoes_name"));
                 shoes.setPrice(rs.getInt("price"));
 
                 //콘솔에 출력
                 System.out.println(" [" + shoes.getShoesId() + "]");
-                System.out.println(" 제품명 : " + shoes.getName());
+                System.out.println(" 제품명 : " + shoes.getShoesName());
                 System.out.println(" 가격 : " + shoes.getPrice() + "원");
                 System.out.println("-------------------------------");
             }

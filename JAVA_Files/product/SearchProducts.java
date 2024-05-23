@@ -36,12 +36,12 @@ public class SearchProducts {
                     // 데이터 행 읽고 객체 생성
                     Shoes shoes = new Shoes();
                     shoes.setShoesId(rs.getInt("shoes_id"));
-                    shoes.setName(rs.getString("name"));
+                    shoes.setShoesName(rs.getString("shoes_name"));
                     shoes.setPrice(rs.getInt("price"));
 
                     // 결과 출력
                     System.out.println(" [" + shoes.getShoesId() + "]");
-                    System.out.println(" 제품명 : " + shoes.getName());
+                    System.out.println(" 제품명 : " + shoes.getShoesName());
                     System.out.println(" 가격 : " + shoes.getPrice() + "원");
                     System.out.println("--------------------------------");
                 }

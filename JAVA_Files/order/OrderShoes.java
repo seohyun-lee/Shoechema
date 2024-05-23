@@ -18,7 +18,7 @@ public class OrderShoes {
              PreparedStatement pstmtDelivery = conn.prepareStatement(
                      "SELECT address, phone_number FROM Users WHERE user_id = ?");
              PreparedStatement pstmtProduct = conn.prepareStatement(
-                     "SELECT name, size_number, price" +
+                     "SELECT shoes_name, size_number, price" +
                              " FROM ShoesOptions, Shoes, Sizes" +
                              " WHERE Shoes.shoes_id = ShoesOptions.shoes_id" +
                              " AND Sizes.size_id = ShoesOptions.size_id" +
@@ -32,7 +32,7 @@ public class OrderShoes {
             ResultSet rsProduct = pstmtProduct.executeQuery();
 
             if (rsDelivery.next() && rsProduct.next()) { //상품, 유저 하나
-                String shoesName = rsProduct.getString("name");
+                String shoesName = rsProduct.getString("shoes_name");
                 int sizeNumber = rsProduct.getInt("size_number");
                 int price = rsProduct.getInt("price");
 
