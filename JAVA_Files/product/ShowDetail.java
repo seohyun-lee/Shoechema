@@ -14,7 +14,7 @@ public class ShowDetail {
     private static Scanner scanner = new Scanner(System.in);
 
     public static void showDetail() {
-        System.out.print("상품 번호 입력 (0번 입력시 뒤로 이동) -> ");
+        System.out.print("상품 번호 입력 -> ");
         int shoesId = scanner.nextInt();
         scanner.nextLine();
         //SQL문 작성
@@ -32,7 +32,7 @@ public class ShowDetail {
             pstmt.setInt(1, shoesId);
             //SQL 문 실행 후 ResultSet 통해 데이터 읽기
             ResultSet rs = pstmt.executeQuery();
-            while(rs.next()) {
+            if (rs.next()) {
                 //데이터 행 읽고 객체 생성
                 Shoes shoes = new Shoes();
                 shoes.setName(rs.getString("name")); //신발 이름
@@ -51,11 +51,13 @@ public class ShowDetail {
                 System.out.println("------------------------------");
                 System.out.println(" 출시일 : " + shoes.getReleaseDate());
                 System.out.println("+—————————————————————————————+");
+                ShowDetail.askOrder(); // 주문할지 묻는 메뉴
+                return;
             }
-            ShowDetail.askOrder(); // 주문할지 묻는 메뉴
         } catch (SQLException e) {
             e.printStackTrace();
         }
+        System.out.println("해당 번호로 상품을 찾지 못했습니다.");
     }
 
     private static void askOrder() {
@@ -74,6 +76,6 @@ public class ShowDetail {
                 System.out.println("메뉴를 잘못 입력하셨습니다.");
             }
         }
-        ProductMenu.showDetailMenu();
+        ProductMenu.showProductMenu();
     }
 }

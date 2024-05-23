@@ -23,7 +23,7 @@ public class SearchProducts {
         try (Connection conn = DatabaseConnection.getConnection();
              PreparedStatement pstmt = conn.prepareStatement(sql)
         ){
-            System.out.print("신발 검색 : ");
+            System.out.print("신발 검색: ");
             String searchQuery = scanner.nextLine();
 
             // PreparedStatement의 파라미터를 설정
@@ -43,7 +43,7 @@ public class SearchProducts {
                     System.out.println(" [" + shoes.getShoesId() + "]");
                     System.out.println(" 제품명 : " + shoes.getName());
                     System.out.println(" 가격 : " + shoes.getPrice() + "원");
-                    System.out.println("------------------------------");
+                    System.out.println("--------------------------------");
                 }
             } catch (SQLException e) { // SQLException을 catch
                 e.printStackTrace();
@@ -59,7 +59,7 @@ public class SearchProducts {
             searchProducts();
         }
         else {
-            ProductMenu.showSearchMenu();
+            ProductMenu.showProductMenu();
         }
     }
 }

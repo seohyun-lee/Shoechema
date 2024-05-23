@@ -24,10 +24,15 @@ public class ShopUI {
         System.out.println("|                     ~~~ 회원가입 ~~~                      |");
         System.out.println("+==========================================================+");
     }
-    public static void printUserProfileBanner() { // 회원 정보 배너
+    public static void printUserProfileBanner() { // 유저 정보 배너
         System.out.println("+==========================================================+");
         System.out.println("|                     ~~~ 회원 정보 ~~~                      |");
         System.out.println("+==========================================================+");
+    }
+    public static void printChangeAddress() { // 주소 변경 배너
+        System.out.println("+——————————————————————————————+");
+        System.out.println("|           주소 변경            |");
+        System.out.println("+——————————————————————————————+");
     }
 
     // product 배너들
@@ -37,9 +42,14 @@ public class ShopUI {
         System.out.println("+==========================================================+");
     }
     public static void printSearchResultBanner() { // 검색 배너
-        System.out.println("+==========================================================+");
-        System.out.println("|                   ~~~ 신발 검색 결과 ~~~                   |");
-        System.out.println("+==========================================================+");
+        System.out.println("+——————————————————————————————+");
+        System.out.println("|         신발 검색 결과         |");
+        System.out.println("+——————————————————————————————+");
+    }
+    public static void printProductMenu() { // 검색 배너
+        System.out.println("+——————————————————————————————+");
+        System.out.println("|             메뉴              |");
+        System.out.println("+——————————————————————————————+");
     }
     public static void printNewProductsBanner() { // 신상품 배너
         System.out.println("+==========================================================+");
