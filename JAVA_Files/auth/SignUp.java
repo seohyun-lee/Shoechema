@@ -9,14 +9,14 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.Scanner;
 
-//회원가입
+// 회원가입
 public class SignUp {
     public static void signUp() {
         Scanner scanner = new Scanner(System.in);
         String email, password, phoneNumber, address;
-        ShopUI.printDividingLine();
+        ShopUI.printSignUpBanner();
 
-        //이메일 입력받기(중복 이메일일 경우 다시 입력)
+        // 이메일 입력받기(중복 이메일일 경우 다시 입력)
         while (true) {
             System.out.print("이메일을 입력해 주세요: ");
             email = scanner.nextLine();
@@ -46,6 +46,7 @@ public class SignUp {
         } else {
             System.out.println("회원가입에 실패했습니다. 다시 시도해주세요.");
         }
+        ShopUI.printDividingLine();
     }
 
     //존재하는 이메일인지 확인하는 메소드
