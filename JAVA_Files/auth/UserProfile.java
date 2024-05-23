@@ -48,9 +48,11 @@ public class UserProfile {
                 switch (choice) {
                     case 1:
                         updateAddress(userId, scanner);
+                        showUserProfile(); // 다시 마이페이지로 이동
                         break;
                     case 2:
                         OrderList.orderList(userId);
+                        showUserProfile(); // 다시 마이페이지로 이동
                         break;
                     case 3:
                         System.out.println("마이페이지를 나갑니다.");
@@ -81,9 +83,6 @@ public class UserProfile {
 
             pstmt.executeUpdate();
             System.out.println("주소 변경이 완료되었습니다.");
-
-            showUserProfile(); //마이페이지로 이동
-
         } catch (SQLException e) {
             e.printStackTrace();
         }
