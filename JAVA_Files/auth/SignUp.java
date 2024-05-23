@@ -46,7 +46,6 @@ public class SignUp {
         } else {
             System.out.println("회원가입에 실패했습니다. 다시 시도해주세요.");
         }
-        ShopUI.printDividingLine();
     }
 
     //존재하는 이메일인지 확인하는 메소드

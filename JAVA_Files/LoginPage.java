@@ -15,7 +15,7 @@ public class LoginPage {
             ShopUI.printShopBanner(); // 쇼핑몰 배너 출력
             ShopUI.printPromoText1(); // 쇼핑몰 프로모션 문구1 출력
             System.out.println("+————————메뉴————————+");
-            System.out.println("| 1. 회원가입\t\t\t|");
+            System.out.println("| 1. 회원가입  \t\t|");
             System.out.println("| 2. 로그인\t\t\t|");
             System.out.println("+———————————————————+");
             System.out.print("원하시는 메뉴 번호를 입력해주세요: ");
