@@ -1,6 +1,7 @@
 package JAVA_Files.product;
 
 import JAVA_Files.MainPage;
+import JAVA_Files.UI.ShopUI;
 import JAVA_Files.auth.UserProfile;
 import JAVA_Files.util.DatabaseConnection;
 
@@ -15,6 +16,7 @@ public class ShowNewProducts {
 
     public static void showNewProducts() {
         Scanner scanner = new Scanner(System.in);
+        ShopUI.printDividingLine();
 
         //SQL문 작성
         String sql = "" +

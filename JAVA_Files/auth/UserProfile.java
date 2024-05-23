@@ -2,6 +2,7 @@ package JAVA_Files.auth;
 
 import JAVA_Files.LoginPage;
 import JAVA_Files.MainPage;
+import JAVA_Files.UI.ShopUI;
 import JAVA_Files.util.DatabaseConnection;
 
 import java.sql.Connection;
@@ -14,6 +15,7 @@ public class UserProfile {
     //유저 정보 조회 메소드
     public static void showUserProfile() {
         Scanner scanner = new Scanner(System.in);
+        ShopUI.printDividingLine();
 
         try (Connection conn = DatabaseConnection.getConnection();
              PreparedStatement pstmt = conn.prepareStatement("SELECT email, phone_number, address FROM Users WHERE user_id = ?"))
@@ -88,6 +90,6 @@ public class UserProfile {
 
     // ShowNewProducts -> 내 주문 보기 => pubic으로 변경
     public static void showOrders(int userId) {
-
+        // TODO:
     }
 }

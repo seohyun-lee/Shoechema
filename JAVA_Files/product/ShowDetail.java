@@ -2,6 +2,7 @@ package JAVA_Files.product;
 
 import JAVA_Files.MainPage;
 import JAVA_Files.auth.UserProfile;
+import JAVA_Files.order.Order;
 import JAVA_Files.util.DatabaseConnection;
 
 import java.sql.Connection;
@@ -12,7 +13,7 @@ import java.util.Scanner;
 
 //상품 상세보기 페이지
 public class ShowDetail {
-    static Scanner scanner = new Scanner(System.in);
+    private static Scanner scanner = new Scanner(System.in);
 
     public static void showDetail() {
         System.out.print("상품 번호 입력 (0번 입력시 뒤로 이동) -> ");
@@ -20,18 +21,18 @@ public class ShowDetail {
         scanner.nextLine();
         ShowDetail showDetail = new ShowDetail();
         //SQL문 작성
-        String sql = "" +
-                "SELECT s.name, s.price, s.release_date, so.quantity, so.shoes_option_id, sz.size_number " +
+        String sql = "SELECT s.name, s.price, s.release_date, so.quantity, so.shoes_option_id, sz.size_number " +
                 "FROM Shoes s " +
                 "JOIN ShoesOptions so ON s.shoes_id = so.shoes_id " +
                 "JOIN Sizes sz ON so.size_id = sz.size_id " +
-                "WHERE s.shoes_id=" + shoesId;
-
+                "WHERE s.shoes_id = ?";
 
         //PreparedStatement 지정
         try (Connection conn = DatabaseConnection.getConnection();
              PreparedStatement pstmt = conn.prepareStatement(sql))
         {
+            // 매개변수 설정
+            pstmt.setInt(1, shoesId);
             //SQL 문 실행 후 ResultSet 통해 데이터 읽기
             ResultSet rs = pstmt.executeQuery();
             while(rs.next()) {
@@ -70,8 +71,9 @@ public class ShowDetail {
 
             if (result.equals("Y")) {
                 System.out.print("주문하고자 하는 제품의 넘버를 입력해주세요 : ");
-                int shoesOptNum = scanner.nextInt();
-                //상품 주문하기 페이지로 이동
+                int shoesOptionId = scanner.nextInt();
+                Order.order(shoesOptionId);
+                // TODO: 상품 주문하기 페이지로 이동
                 break;
             } else if (result.equals("N")) {
                 break;

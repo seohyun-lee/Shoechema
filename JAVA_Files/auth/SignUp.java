@@ -1,5 +1,6 @@
 package JAVA_Files.auth;
 
+import JAVA_Files.UI.ShopUI;
 import JAVA_Files.util.DatabaseConnection;
 
 import java.sql.Connection;
@@ -13,10 +14,11 @@ public class SignUp {
     public static void signUp() {
         Scanner scanner = new Scanner(System.in);
         String email, password, phoneNumber, address;
+        ShopUI.printDividingLine();
 
         //이메일 입력받기(중복 이메일일 경우 다시 입력)
         while (true) {
-            System.out.print("이메일을 입력해 주세요:");
+            System.out.print("이메일을 입력해 주세요: ");
             email = scanner.nextLine();
 
             if (!isEmailExists(email)) {
@@ -27,15 +29,15 @@ public class SignUp {
         }
 
         //비밀번호 입력받기
-        System.out.print("비밀번호를 입력해 주세요:");
+        System.out.print("비밀번호를 입력해 주세요: ");
         password = scanner.nextLine();
 
         //전화번호 입력받기
-        System.out.print("전화번호를 입력해 주세요:");
+        System.out.print("전화번호를 입력해 주세요: ");
         phoneNumber = scanner.nextLine();
 
         //주소 입력받기
-        System.out.print("주소를 입력해 주세요:");
+        System.out.print("주소를 입력해 주세요: ");
         address = scanner.nextLine();
 
         //입력받은 정보로 유저 등록

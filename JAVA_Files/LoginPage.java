@@ -1,5 +1,6 @@
 package JAVA_Files;
 
+import JAVA_Files.UI.ShopUI;
 import JAVA_Files.auth.SignUp;
 import JAVA_Files.auth.Login;
 
@@ -9,7 +10,7 @@ import java.util.Scanner;
 public class LoginPage {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
-
+        ShopUI.printBanner();
         while (true) {
             System.out.println("————————메뉴———————");
             System.out.println("1. 회원가입");
