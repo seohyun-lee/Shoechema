@@ -1,3 +1,3 @@
-drop database shoechema_db;
-create database shoechema_db;
-use shoechema_db;
+drop database shoechema;
+create database shoechema;
+use shoechema;
