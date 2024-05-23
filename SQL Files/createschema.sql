@@ -9,7 +9,7 @@ CREATE TABLE Users (
 
 CREATE TABLE Shoes (
     shoes_id INTEGER NOT NULL AUTO_INCREMENT,
-    name VARCHAR(64) NOT NULL,
+    shoes_name VARCHAR(64) NOT NULL,
     price INTEGER NOT NULL,
     release_date DATE NOT NULL,
     PRIMARY KEY (shoes_id)
@@ -44,3 +44,16 @@ CREATE TABLE Orders (
     FOREIGN KEY (user_id) REFERENCES Users(user_id),
     FOREIGN KEY (shoes_option_id) REFERENCES ShoesOptions(shoes_option_id)
 );
+
+CREATE VIEW OrderSummary AS
+SELECT Orders.order_id,
+       Orders.user_id,
+       Shoes.shoes_name,
+       Sizes.size_number,
+       Orders.ordered_at,
+       Orders.delivery_status,
+       Orders.order_price
+FROM Orders, ShoesOptions, Shoes, Sizes
+WHERE Orders.shoes_option_id = ShoesOptions.shoes_option_id
+  AND ShoesOptions.shoes_id = Shoes.shoes_id
+  AND ShoesOptions.size_id = Sizes.size_id;

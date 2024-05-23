@@ -7,7 +7,7 @@ INSERT INTO Users (email, password, address, phone_number) VALUES
 ('emily@example.com', 'passwordEmily', '202 Birch Boulevard, Metropolis', '01066778899');
 
 -- Insert data into Shoes table
-INSERT INTO Shoes (name, price, release_date) VALUES
+INSERT INTO Shoes (shoes_name, price, release_date) VALUES
 ('Eclipse Runners', 120000, '2023-03-01'),
 ('Urban Explorers', 150000, '2023-04-15'),
 ('Wind Sneakers', 80000, '2023-05-10'),
