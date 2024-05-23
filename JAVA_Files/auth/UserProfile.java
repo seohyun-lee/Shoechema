@@ -60,7 +60,7 @@ public class UserProfile {
                 }
             } else {
                 System.out.println("존재하지 않는 사용자입니다.");
-                GuestPage.guestMainPage(); // 로그인하지 않은 사용자의 메인 페이지로 이동
+                GuestPage.guestMainPage(); // 게스트 사용자의 메인 페이지로 이동
             }
         } catch (SQLException e) {
             e.printStackTrace();
@@ -69,7 +69,7 @@ public class UserProfile {
 
     // 주소 변경 메소드
     private static void updateAddress(int userId, Scanner scanner) {
-        ShopUI.printChangeAddress(); // 주소 변경 배너 출력
+        ShopUI.printChangeAddressBanner(); // 주소 변경 배너 출력
         System.out.print("새로운 주소를 입력해주세요: ");
         String newAddress = scanner.nextLine();
 

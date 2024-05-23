@@ -11,7 +11,7 @@ public class ProductMenu {
     // SearchProducts, ShowNewProducts, ShowDetail에서 호출하는 메뉴
     public static void showProductMenu() {
         Scanner scanner = new Scanner(System.in);
-        ShopUI.printProductMenu();
+        ShopUI.printProductMenuBanner();
         System.out.println(" 1. 신상품을 보기");
         System.out.println(" 2. 상품을 검색하기");
         System.out.println(" 3. 상품의 상세 정보를 보기");

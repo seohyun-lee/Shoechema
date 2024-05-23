@@ -1,5 +1,6 @@
 package JAVA_Files.order;
 
+import JAVA_Files.UI.ShopUI;
 import JAVA_Files.util.DatabaseConnection;
 
 import java.sql.Connection;
@@ -9,13 +10,15 @@ import java.sql.SQLException;
 import java.time.LocalDateTime;
 
 public class OrderList {
-
     public static void orderList(int userId) { //현재 로그인된 유저 아이디를 받는다
+        ShopUI.printOrderListBanner();
+
         String sql = ""; // View
         try (Connection conn = DatabaseConnection.getConnection();
              PreparedStatement pstmt = conn.prepareStatement(sql);
         ) {
             pstmt.setInt(1, userId);
+
             ResultSet rs = pstmt.executeQuery();
             while (rs.next()) {
                 String shoesName = rs.getString("name");

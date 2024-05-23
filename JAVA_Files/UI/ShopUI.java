@@ -29,7 +29,7 @@ public class ShopUI {
         System.out.println("|                     ~~~ 회원 정보 ~~~                      |");
         System.out.println("+==========================================================+");
     }
-    public static void printChangeAddress() { // 주소 변경 배너
+    public static void printChangeAddressBanner() { // 주소 변경 배너
         System.out.println("+——————————————————————————————+");
         System.out.println("|           주소 변경            |");
         System.out.println("+——————————————————————————————+");
@@ -46,7 +46,7 @@ public class ShopUI {
         System.out.println("|         신발 검색 결과         |");
         System.out.println("+——————————————————————————————+");
     }
-    public static void printProductMenu() { // 검색 배너
+    public static void printProductMenuBanner() { // 검색 배너
         System.out.println("+——————————————————————————————+");
         System.out.println("|             메뉴              |");
         System.out.println("+——————————————————————————————+");
@@ -57,6 +57,22 @@ public class ShopUI {
         System.out.println("+==========================================================+");
     }
 
+    // 주문 배너들
+    public static void printDoOrderBanner() { // 주문하기 배너
+        System.out.println("+——————————————————————————————+");
+        System.out.println("|            주문하기            |");
+        System.out.println("+——————————————————————————————+");
+    }
+    public static void printOrderListBanner() { // 신상품 배너
+        System.out.println("+==========================================================+");
+        System.out.println("|                    ~~~ 주문 목록  ~~~                     |");
+        System.out.println("+==========================================================+");
+    }
+    public static void printOrderDetailBanner() { // 주문내역 배너
+        System.out.println("+——————————————————————————————+");
+        System.out.println("|           주문 상세           |");
+        System.out.println("+——————————————————————————————+");
+    }
 
     public static void printPromoText1() { // LoginPage의 프로모션 텍스트
         System.out.println("      ~~~ Shoechema의 신발과 특별한 여정을 함께하세요 ~~~      ");
@@ -64,10 +80,6 @@ public class ShopUI {
 
     public static void printPromoText2() { // MainPage의 프로모션 텍스트
         System.out.println("   ~~~ 어디서든 빛나는 당신을 위한 최고의 선택, Shoechema ~~~    ");
-    }
-
-    public static void printDividingLine() { // 구분선 출력 메소드
-        System.out.println("—————————————————————————————————————————————————————————————");
     }
 
 }
