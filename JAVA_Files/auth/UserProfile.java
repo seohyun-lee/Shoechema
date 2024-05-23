@@ -1,7 +1,7 @@
 package JAVA_Files.auth;
 
-import JAVA_Files.LoginPage;
 import JAVA_Files.MainPage;
+import JAVA_Files.UI.ShopUI;
 import JAVA_Files.util.DatabaseConnection;
 
 import java.sql.Connection;
@@ -14,6 +14,7 @@ public class UserProfile {
     //유저 정보 조회 메소드
     public static void showUserProfile() {
         Scanner scanner = new Scanner(System.in);
+        ShopUI.printUserProfileBanner();
 
         try (Connection conn = DatabaseConnection.getConnection();
              PreparedStatement pstmt = conn.prepareStatement("SELECT email, phone_number, address FROM Users WHERE user_id = ?"))
@@ -29,15 +30,15 @@ public class UserProfile {
                 String phoneNumber = rs.getString("phone_number");
                 String address = rs.getString("address");
 
-                System.out.println("———————내 정보———————");
+                System.out.println("————————내 정보————————");
                 System.out.println("이메일: " + userEmail);
                 System.out.println("전화번호: " + phoneNumber);
                 System.out.println("주소: " + address);
-                System.out.println("————————메뉴———————");
+                System.out.println("—————————메뉴—————————");
                 System.out.println("1. 주소 변경");
                 System.out.println("2. 내 주문 보기");
                 System.out.println("3. 마이페이지 나가기");
-                System.out.println("———————————————————");
+                System.out.println("—————————————————————");
                 System.out.print("원하시는 메뉴 번호를 입력해주세요: ");
                 int choice = scanner.nextInt();
                 scanner.nextLine();
@@ -88,6 +89,6 @@ public class UserProfile {
 
     // ShowNewProducts -> 내 주문 보기 => pubic으로 변경
     public static void showOrders(int userId) {
-
+        // TODO:
     }
 }
