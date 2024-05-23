@@ -2,6 +2,7 @@ package JAVA_Files.auth;
 
 import JAVA_Files.MainPage;
 import JAVA_Files.UI.ShopUI;
+import JAVA_Files.order.OrderList;
 import JAVA_Files.util.DatabaseConnection;
 
 import java.sql.Connection;
@@ -30,7 +31,7 @@ public class UserProfile {
                 String phoneNumber = rs.getString("phone_number");
                 String address = rs.getString("address");
 
-                System.out.println("————————내 정보————————");
+                System.out.println("+————————내 정보————————");
                 System.out.println("이메일: " + userEmail);
                 System.out.println("전화번호: " + phoneNumber);
                 System.out.println("주소: " + address);
@@ -48,7 +49,7 @@ public class UserProfile {
                         updateAddress(userId, scanner);
                         break;
                     case 2:
-                        showOrders(userId);
+                        OrderList.orderList(userId);
                         break;
                     case 3:
                         System.out.println("마이페이지를 나갑니다.");
@@ -73,7 +74,6 @@ public class UserProfile {
         try (Connection conn = DatabaseConnection.getConnection();
              PreparedStatement pstmt = conn.prepareStatement("UPDATE Users SET address = ? WHERE user_id = ?"))
         {
-
             pstmt.setString(1, newAddress);
             pstmt.setInt(2, userId);
 
@@ -85,10 +85,5 @@ public class UserProfile {
         } catch (SQLException e) {
             e.printStackTrace();
         }
-    }
-
-    // ShowNewProducts -> 내 주문 보기 => pubic으로 변경
-    public static void showOrders(int userId) {
-        // TODO:
     }
 }

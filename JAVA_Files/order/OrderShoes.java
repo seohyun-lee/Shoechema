@@ -9,7 +9,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.Scanner;
 
-public class Order {
+public class OrderShoes {
 
     public static void order(int shoesOptionId) {
         Scanner scanner = new Scanner(System.in);

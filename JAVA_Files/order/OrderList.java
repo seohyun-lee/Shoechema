@@ -11,12 +11,11 @@ import java.time.LocalDateTime;
 
 public class OrderList {
 
-    public static void orderList() {
+    public static void orderList(int userId) { //현재 로그인된 유저 아이디를 받는다
         String sql = ""; // View
         try (Connection conn = DatabaseConnection.getConnection();
              PreparedStatement pstmt = conn.prepareStatement(sql);
         ) {
-            int userId = MainPage.loggedInUserId; //현재 로그인된 유저 아이디 가져오기
             pstmt.setInt(1, userId);
             ResultSet rs = pstmt.executeQuery();
             while (rs.next()) {
