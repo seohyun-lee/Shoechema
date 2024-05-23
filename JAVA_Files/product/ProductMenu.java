@@ -7,17 +7,17 @@ import java.util.Scanner;
 
 public class ProductMenu {
 
+    // SearchProducts와 ShowNewProducts에서 호출하는 메뉴
     public static void showSearchMenu() {
         Scanner scanner = new Scanner(System.in);
-        System.out.println("+————————————————————————————+");
-        System.out.println("[메뉴]");
-        System.out.println("1. 상품을 선택해 상세 정보를 보기");
-        System.out.println("2. 신상품을 보기");
-        System.out.println("3. 상품을 검색하기");
-        System.out.println("+————————————————————————————+");
-        System.out.println("4. 마이 페이지");
-        System.out.println("5. 메인 페이지");
-        System.out.println("+————————————————————————————+");
+        System.out.println("+————————————메뉴——————————————+");
+        System.out.println(" 1. 상품을 선택해 상세 정보를 보기");
+        System.out.println(" 2. 신상품을 보기");
+        System.out.println(" 3. 상품을 검색하기");
+        System.out.println("+——————————————————————————————+");
+        System.out.println(" 4. 마이 페이지");
+        System.out.println(" 5. 메인 페이지");
+        System.out.println("+——————————————————————————————+");
 
         System.out.print("메뉴 번호 입력 -> ");
         int menu = scanner.nextInt();
@@ -33,17 +33,17 @@ public class ProductMenu {
         showSearchMenu();
     }
 
+    // ShowDetail에서 호출하는 메뉴
     public static void showDetailMenu() {
         Scanner scanner = new Scanner(System.in);
-        System.out.println("+————————————————————————————+");
-        System.out.println("[메뉴]");
-        System.out.println("1. 신상품을 보기");
-        System.out.println("2. 상품을 검색하기");
-        System.out.println("3. 다른 상품의 상세 정보를 보기");
-        System.out.println("+————————————————————————————+");
-        System.out.println("4. 마이 페이지");
-        System.out.println("5. 메인 페이지");
-        System.out.println("+————————————————————————————+");
+        System.out.println("+—————————————메뉴——————————————+");
+        System.out.println(" 1. 신상품을 보기");
+        System.out.println(" 2. 상품을 검색하기");
+        System.out.println(" 3. 다른 상품의 상세 정보를 보기");
+        System.out.println("+——————————————————————————————+");
+        System.out.println(" 4. 마이 페이지");
+        System.out.println(" 5. 메인 페이지");
+        System.out.println("+——————————————————————————————+");
 
         System.out.print("메뉴 번호 입력 -> ");
         int menu = scanner.nextInt();

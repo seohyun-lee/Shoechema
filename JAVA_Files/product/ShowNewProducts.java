@@ -31,9 +31,10 @@ public class ShowNewProducts {
                 shoes.setPrice(rs.getInt("price"));
 
                 //콘솔에 출력
-                System.out.println("[" + shoes.getShoesId() + "]");
-                System.out.println("제품명 : " + shoes.getName());
-                System.out.println("가격 : " + shoes.getPrice() + "원");
+                System.out.println(" [" + shoes.getShoesId() + "]");
+                System.out.println(" 제품명 : " + shoes.getName());
+                System.out.println(" 가격 : " + shoes.getPrice() + "원");
+                System.out.println("------------------------------");
             }
         } catch (SQLException e) {
             e.printStackTrace();

@@ -55,7 +55,7 @@ public class SearchProducts {
         String answer = scanner.next();
         scanner.nextLine();
 
-        if (answer.equals("Y") || answer.equals("y")) {
+        if (answer.equals("Y") || answer.equals("y")) { // Y 또는 y 입력 시 상품 다시 검색
             searchProducts();
         }
         else {

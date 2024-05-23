@@ -43,16 +43,16 @@ public class ShowDetail {
                 shoes.setShoesOptId(rs.getInt("shoes_option_id")); //shoes_option_id -> 제품 주문하기로 이어지는 매개변수
 
                 //콘솔에 출력
-                System.out.println("+————————————————————————————+");
+                System.out.println("+—————————————————————————————+");
                 System.out.println(" 제품명 : " + shoes.getName());
                 System.out.println(" 가격 : " + shoes.getPrice() + "원");
                 System.out.println(" 사이즈 : " + shoes.getSizeNum());
                 System.out.println(" 제품 넘버 : " + shoes.getShoesOptId());
                 System.out.println("------------------------------");
                 System.out.println(" 출시일 : " + shoes.getReleaseDate());
-                System.out.println("+————————————————————————————+");
+                System.out.println("+—————————————————————————————+");
             }
-            ShowDetail.askOrder(); // 주문할지 묻는 메뉴로 이동
+            ShowDetail.askOrder(); // 주문할지 묻는 메뉴
         } catch (SQLException e) {
             e.printStackTrace();
         }

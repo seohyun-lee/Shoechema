@@ -1,6 +1,5 @@
 package JAVA_Files.order;
 
-import JAVA_Files.MainPage;
 import JAVA_Files.util.DatabaseConnection;
 
 import java.sql.Connection;
