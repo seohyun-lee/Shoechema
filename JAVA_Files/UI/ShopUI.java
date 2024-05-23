@@ -13,21 +13,37 @@ public class ShopUI {
         System.out.println("+==========================================================+");
     }
 
+    // auth 배너들
     public static void printLoginBanner() { // 로그인 배너
         System.out.println("+==========================================================+");
         System.out.println("|                      ~~~ 로그인 ~~~                       |");
         System.out.println("+==========================================================+");
     }
-
     public static void printSignUpBanner() { // 회원가입 배너
         System.out.println("+==========================================================+");
         System.out.println("|                     ~~~ 회원가입 ~~~                      |");
         System.out.println("+==========================================================+");
     }
-
     public static void printUserProfileBanner() { // 회원 정보 배너
         System.out.println("+==========================================================+");
         System.out.println("|                     ~~~ 회원 정보 ~~~                      |");
+        System.out.println("+==========================================================+");
+    }
+
+    // product 배너들
+    public static void printSearchBanner() { // 검색 배너
+        System.out.println("+==========================================================+");
+        System.out.println("|                     ~~~ 신발 검색 ~~~                      |");
+        System.out.println("+==========================================================+");
+    }
+    public static void printSearchResultBanner() { // 검색 배너
+        System.out.println("+==========================================================+");
+        System.out.println("|                   ~~~ 신발 검색 결과 ~~~                   |");
+        System.out.println("+==========================================================+");
+    }
+    public static void printNewProductsBanner() {
+        System.out.println("+==========================================================+");
+        System.out.println("|                    ~~~ 신상품 목록  ~~~                    |");
         System.out.println("+==========================================================+");
     }
 
@@ -43,4 +59,5 @@ public class ShopUI {
     public static void printDividingLine() { // 구분선 출력 메소드
         System.out.println("—————————————————————————————————————————————————————————————");
     }
+
 }
