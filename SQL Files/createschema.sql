@@ -35,7 +35,7 @@ CREATE TABLE Orders (
     order_id INTEGER NOT NULL AUTO_INCREMENT,
     user_id INTEGER NOT NULL,
     shoes_option_id INTEGER NOT NULL,
-    ordered_at DATETIME NOT NULL,
+    ordered_at TIMESTAMP NOT NULL,
     delivery_address VARCHAR(64) NOT NULL,
     delivery_status VARCHAR(64) NOT NULL,
     order_price INTEGER NOT NULL,
