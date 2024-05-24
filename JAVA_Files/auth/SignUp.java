@@ -16,29 +16,57 @@ public class SignUp {
         String email, password, phoneNumber, address;
         ShopUI.printSignUpBanner();
 
-        // 이메일 입력받기(중복 이메일일 경우 다시 입력)
+        // 이메일 입력받기 (중복 이메일일 경우 다시 입력, 공백 불가)
         while (true) {
-            System.out.print("이메일을 입력해 주세요: ");
+            System.out.print("(필수) 이메일을 입력해 주세요: ");
             email = scanner.nextLine();
 
-            if (!isEmailExists(email)) {
-                break;
-            } else {
+            if (email.isBlank()) {
+                System.out.println("이메일은 비워둘 수 없습니다.");
+            } else if (isEmailExists(email)) {
                 System.out.println("이미 존재하는 이메일입니다. 다시 입력해주세요.");
+            } else if (email.length() > 64) {
+                System.out.println("글자수가 너무 많습니다. 64자 이내로 입력해 주세요.");
+            } else {
+                break;
             }
         }
 
         //비밀번호 입력받기
-        System.out.print("비밀번호를 입력해 주세요: ");
-        password = scanner.nextLine();
+        while (true) {
+            System.out.print("(필수) 비밀번호를 입력해 주세요: ");
+            password = scanner.nextLine();
+
+            if (password.isBlank()) {
+                System.out.println("비밀번호는 비워둘 수 없습니다.");
+            } else if (password.length() > 64) {
+                System.out.println("글자수가 너무 많습니다. 64자 이내로 입력해 주세요.");
+            } else {
+                break;
+            }
+        }
 
         //전화번호 입력받기
-        System.out.print("전화번호를 입력해 주세요: ");
-        phoneNumber = scanner.nextLine();
+        while (true) {
+            System.out.print("(필수) 전화번호를 입력해 주세요: ");
+            phoneNumber = scanner.nextLine();
+            if (phoneNumber.isBlank()) {
+                System.out.println("전화번호는 비워둘 수 없습니다.");
+            } else if (phoneNumber.length() > 13) {
+                System.out.println("글자수가 너무 많습니다. 13자 이내로 입력해 주세요.");
+            } else {
+                break;
+            }
+        }
 
         //주소 입력받기
-        System.out.print("주소를 입력해 주세요: ");
+        System.out.print("(선택) 주소를 입력해 주세요: ");
         address = scanner.nextLine();
+        if (address.isBlank()) {
+            address = null;
+        } else if (address.length() > 64) {
+            address = address.substring(0, 64); // 64byte만 저장
+        }
 
         //입력받은 정보로 유저 등록
         if (registerUser(email, password, phoneNumber, address)) {
