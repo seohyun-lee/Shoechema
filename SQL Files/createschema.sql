@@ -45,15 +45,11 @@ CREATE TABLE Orders (
     FOREIGN KEY (shoes_option_id) REFERENCES ShoesOptions(shoes_option_id)
 );
 
-CREATE VIEW OrderSummary AS
-SELECT Orders.order_id,
-       Orders.user_id,
+CREATE VIEW ShoesProduct AS
+SELECT ShoesOptions.shoes_option_id,
        Shoes.shoes_name,
        Sizes.size_number,
-       Orders.ordered_at,
-       Orders.delivery_status,
-       Orders.order_price
-FROM Orders, ShoesOptions, Shoes, Sizes
-WHERE Orders.shoes_option_id = ShoesOptions.shoes_option_id
-  AND ShoesOptions.shoes_id = Shoes.shoes_id
+       Shoes.price
+FROM ShoesOptions, Shoes, Sizes
+WHERE ShoesOptions.shoes_id = Shoes.shoes_id
   AND ShoesOptions.size_id = Sizes.size_id;
