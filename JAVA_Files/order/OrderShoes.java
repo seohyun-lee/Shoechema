@@ -33,11 +33,11 @@ public class OrderShoes {
                 String phoneNumber = deliveryRs.getString("phone_number");
 
                 ShopUI.printDoOrderBanner();
-                System.out.println(" 신발 제품명 : " + shoesName);
-                System.out.println(" 신발 사이즈 : " + sizeNumber);
+                System.out.println(" 제품명 : " + shoesName);
+                System.out.println(" 사이즈 : " + sizeNumber);
                 System.out.println(" 수량 : 1개");
                 System.out.println("-------------------------------");
-                System.out.println(" 결제 금액 : " + price + "원");
+                System.out.println(" 결제금액 : " + price + "원");
                 System.out.println("-------------------------------");
 
                 System.out.print("배송지를 입력해주세요: ");

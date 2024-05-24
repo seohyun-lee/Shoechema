@@ -34,18 +34,18 @@ public class OrderDetail {
 
                 // 주문 내역 출력
                 ShopUI.printOrderDetailBanner();
-                System.out.println("[주문번호: " + inputOrderId + "]");
-                System.out.println(" 주문일자: " + orderedAt);
-                System.out.println(" 배송상태: " + deliveryStatus);
+                System.out.println("[주문번호 : " + inputOrderId + "]");
+                System.out.println(" 주문일자 : " + orderedAt);
+                System.out.println(" 배송상태 : " + deliveryStatus);
                 System.out.println("-------------------------------");
-                System.out.println(" 제품명: " + shoesName);
-                System.out.println(" 사이즈: " + sizeNumber);
-                System.out.println(" 수량: 1개");
+                System.out.println(" 제품명 : " + shoesName);
+                System.out.println(" 사이즈 : " + sizeNumber);
+                System.out.println(" 수량 : 1개");
                 System.out.println("+———————————배송정보————————————+");
-                System.out.println(" 배송지: " + deliveryAddress);
+                System.out.println(" 배송지 : " + deliveryAddress);
                 System.out.println("+———————————결제정보————————————+");
-                System.out.println(" 결제수단: " + paymentType);
-                System.out.println(" 결제금액: " + order_price + "원");
+                System.out.println(" 결제수단 : " + paymentType);
+                System.out.println(" 결제금액 : " + order_price + "원");
                 System.out.println("+—————————————————————————————+");
 
                 showOrderDetailMenu(inputOrderId, deliveryStatus);
