@@ -34,7 +34,7 @@ public class OrderDetail {
 
                 // 주문 내역 출력
                 ShopUI.printOrderDetailBanner();
-                System.out.println(" 주문번호: " + inputOrderId);
+                System.out.println("[주문번호: " + inputOrderId + "]");
                 System.out.println(" 주문일자: " + orderedAt);
                 System.out.println(" 배송상태: " + deliveryStatus);
                 System.out.println("-------------------------------");

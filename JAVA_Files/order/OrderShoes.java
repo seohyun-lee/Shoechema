@@ -33,19 +33,19 @@ public class OrderShoes {
                 String phoneNumber = deliveryRs.getString("phone_number");
 
                 ShopUI.printDoOrderBanner();
-                System.out.println(" 신발 제품명: " + shoesName);
-                System.out.println(" 신발 사이즈: " + sizeNumber);
-                System.out.println(" 수량: 1개");
+                System.out.println(" 신발 제품명 : " + shoesName);
+                System.out.println(" 신발 사이즈 : " + sizeNumber);
+                System.out.println(" 수량 : 1개");
                 System.out.println("-------------------------------");
-                System.out.println(" 결제 금액 " + price + "원");
+                System.out.println(" 결제 금액 : " + price + "원");
                 System.out.println("-------------------------------");
 
                 System.out.print("배송지를 입력해주세요: ");
                 String address = scanner.nextLine();
 
                 System.out.println("+———————————배송 정보————————————+");
-                System.out.println(" 배송지: " + address);
-                System.out.println(" 전화번호: " + phoneNumber);
+                System.out.println(" 배송지 : " + address);
+                System.out.println(" 전화번호 : " + phoneNumber);
                 System.out.println("+———————————결제수단————————————+");
                 System.out.println(" 1. 신용카드로 결제");
                 System.out.println(" 2. 실시간 계좌이체로 결제");

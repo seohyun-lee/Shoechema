@@ -35,7 +35,8 @@ public class OrderList {
                 String deliveryStatus = rs.getString("delivery_status");
                 int orderPrice = rs.getInt("order_price");
 
-                System.out.println(" 주문번호: " + orderId + " [주문일자: " + orderedAt + "]");
+                System.out.println("[주문번호: " + orderId + "]");
+                System.out.println(" 주문일자: " + orderedAt);
                 System.out.println("-------------------------------");
                 System.out.println(" 배송상태: " + deliveryStatus);
                 System.out.println("-------------------------------");
