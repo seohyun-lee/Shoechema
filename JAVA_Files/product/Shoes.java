@@ -26,7 +26,7 @@ public class Shoes {
         return shoesName;
     }
 
-    public void setShoesName(String name) {
+    public void setShoesName(String shoesName) {
         this.shoesName = shoesName;
     }
 
