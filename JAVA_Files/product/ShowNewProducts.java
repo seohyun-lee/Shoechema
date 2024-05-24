@@ -15,7 +15,16 @@ public class ShowNewProducts {
         ShopUI.printNewProductsBanner();
 
         //SQL문 작성
-        String sql = "SELECT shoes_name, price, shoes_id FROM Shoes ORDER BY release_date DESC LIMIT 5";
+//        String sql = "SELECT shoes_name, price, shoes_id FROM Shoes ORDER BY release_date DESC LIMIT 5";
+        String sql = "SELECT s.shoes_id, s.shoes_name, s.price, s.release_date, " +
+                "GROUP_CONCAT(DISTINCT sz.size_number ORDER BY sz.size_number ASC) AS sizes " +
+                "FROM (SELECT * FROM Shoes ORDER BY release_date DESC LIMIT 5) AS s " +
+                "JOIN ShoesOptions so ON s.shoes_id = so.shoes_id " +
+                "JOIN Sizes sz ON so.size_id = sz.size_id " +
+                "GROUP BY s.shoes_id, s.release_date " +
+                "ORDER BY s.release_date DESC";
+
+
 
         //PreparedStatement 지정
         try (Connection conn = DatabaseConnection.getConnection();
@@ -34,6 +43,7 @@ public class ShowNewProducts {
                 System.out.println(" [" + shoes.getShoesId() + "]");
                 System.out.println(" 제품명 : " + shoes.getShoesName());
                 System.out.println(" 가격 : " + shoes.getPrice() + "원");
+                System.out.println(" 사이즈 종류 : " + rs.getString("sizes"));
                 System.out.println("-------------------------------");
             }
         } catch (SQLException e) {

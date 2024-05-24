@@ -36,7 +36,8 @@ public class ProductMenu {
             case 4:
                 UserProfile.showUserProfile();
                 break;
-            case 5: MainPage.main();
+            case 5:
+                MainPage.main();
                 break;
             default:
                 System.out.println("번호를 잘못 입력하셨습니다. 다시 입력해주세요.");
