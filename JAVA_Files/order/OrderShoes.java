@@ -15,7 +15,7 @@ public class OrderShoes {
     public static void order(int shoesOptionId) {
         Scanner scanner = new Scanner(System.in);
         try (Connection conn = DatabaseConnection.getConnection();
-             PreparedStatement pstmtDelivery = conn.prepareStatement(
+             PreparedStatement deliveryPstmt = conn.prepareStatement(
                      "SELECT address, phone_number FROM Users WHERE user_id = ?");
              PreparedStatement pstmtProduct = conn.prepareStatement(
                      "SELECT shoes_name, size_number, price" +
@@ -25,16 +25,16 @@ public class OrderShoes {
                              " AND shoes_option_id = ?");
         ) {
             int userId = MainPage.loggedInUserId; // 현재 로그인된 유저 아이디 가져오기
-            pstmtDelivery.setInt(1, userId);
-            ResultSet rsDelivery = pstmtDelivery.executeQuery(); // 유저 아이디로 유저 정보 가져오기
+            deliveryPstmt.setInt(1, userId);
+            ResultSet deliveryRs = deliveryPstmt.executeQuery(); // 유저 아이디로 유저 정보 가져오기
 
             pstmtProduct.setInt(1, shoesOptionId);
-            ResultSet rsProduct = pstmtProduct.executeQuery();
+            ResultSet productRs = pstmtProduct.executeQuery();
 
-            if (rsDelivery.next() && rsProduct.next()) { //상품, 유저 하나
-                String shoesName = rsProduct.getString("shoes_name");
-                int sizeNumber = rsProduct.getInt("size_number");
-                int price = rsProduct.getInt("price");
+            if (deliveryRs.next() && productRs.next()) { //상품, 유저 하나
+                String shoesName = productRs.getString("shoes_name");
+                int sizeNumber = productRs.getInt("size_number");
+                int price = productRs.getInt("price");
 
                 ShopUI.printDoOrderBanner();
                 System.out.println(" 신발 제품명: " + shoesName);
@@ -44,8 +44,8 @@ public class OrderShoes {
                 System.out.println(" 결제 금액 " + price + "원");
                 
                 // userId 유저의 주소, 전화번호 받아오기
-                String address = rsDelivery.getString("address");
-                String phoneNumber = rsDelivery.getString("phone_number");
+                String address = deliveryRs.getString("address");
+                String phoneNumber = deliveryRs.getString("phone_number");
                 if (address == null) {
                     System.out.println("-------------------------------");
                     System.out.println("배송지가 입력되지 않았습니다.\n" +
