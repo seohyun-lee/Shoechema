@@ -17,7 +17,7 @@ public class OrderShoes {
         try (Connection conn = DatabaseConnection.getConnection();
              PreparedStatement deliveryPstmt = conn.prepareStatement(
                      "SELECT address, phone_number FROM Users WHERE user_id = ?");
-             PreparedStatement pstmtProduct = conn.prepareStatement(
+             PreparedStatement productPstmt = conn.prepareStatement(
                      "SELECT shoes_name, size_number, price" +
                              " FROM ShoesProduct WHERE shoes_option_id = ?");
         ) {
@@ -25,8 +25,8 @@ public class OrderShoes {
             deliveryPstmt.setInt(1, userId);
             ResultSet deliveryRs = deliveryPstmt.executeQuery(); // 유저 아이디로 유저 정보 가져오기
 
-            pstmtProduct.setInt(1, shoesOptionId);
-            ResultSet productRs = pstmtProduct.executeQuery();
+            productPstmt.setInt(1, shoesOptionId);
+            ResultSet productRs = productPstmt.executeQuery();
 
             if (deliveryRs.next() && productRs.next()) { //상품, 유저 하나
                 String shoesName = productRs.getString("shoes_name");
