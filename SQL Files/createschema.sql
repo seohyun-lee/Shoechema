@@ -36,11 +36,11 @@ CREATE TABLE Orders (
     order_id INTEGER NOT NULL AUTO_INCREMENT,
     user_id INTEGER NOT NULL,
     shoes_option_id INTEGER NOT NULL,
-    ordered_at TIMESTAMP NOT NULL,
     delivery_address VARCHAR(64) NOT NULL,
     delivery_status VARCHAR(64) NOT NULL,
     order_price INTEGER NOT NULL,
     payment_type VARCHAR(64) NOT NULL,
+    ordered_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
     PRIMARY KEY (order_id),
     FOREIGN KEY (user_id) REFERENCES Users(user_id),
     FOREIGN KEY (shoes_option_id) REFERENCES ShoesOptions(shoes_option_id)

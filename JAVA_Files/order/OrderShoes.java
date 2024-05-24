@@ -15,11 +15,9 @@ public class OrderShoes {
     public static void order(int shoesOptionId) {
         Scanner scanner = new Scanner(System.in);
         try (Connection conn = DatabaseConnection.getConnection();
-             PreparedStatement deliveryPstmt = conn.prepareStatement(
-                     "SELECT address, phone_number FROM Users WHERE user_id = ?");
+             PreparedStatement deliveryPstmt = conn.prepareStatement("SELECT * FROM Users WHERE user_id = ?");
              PreparedStatement productPstmt = conn.prepareStatement(
-                     "SELECT shoes_name, size_number, price" +
-                             " FROM ShoesProduct WHERE shoes_option_id = ?");
+                     "SELECT shoes_name, size_number, price FROM ShoesProduct WHERE shoes_option_id = ?");
         ) {
             int userId = MainPage.loggedInUserId; // 현재 로그인된 유저 아이디 가져오기
             deliveryPstmt.setInt(1, userId);
@@ -28,7 +26,7 @@ public class OrderShoes {
             productPstmt.setInt(1, shoesOptionId);
             ResultSet productRs = productPstmt.executeQuery();
 
-            if (deliveryRs.next() && productRs.next()) { //상품, 유저 하나
+            if (deliveryRs.next() && productRs.next()) { //상품, 유저 유효함
                 String shoesName = productRs.getString("shoes_name");
                 int sizeNumber = productRs.getInt("size_number");
                 int price = productRs.getInt("price");
@@ -39,21 +37,13 @@ public class OrderShoes {
                 System.out.println(" 수량: 1개");
                 System.out.println("-------------------------------");
                 System.out.println(" 결제 금액 " + price + "원");
-                
-                // userId 유저의 주소, 전화번호 받아오기
-                String address = deliveryRs.getString("address");
-                String phoneNumber = deliveryRs.getString("phone_number");
-                if (address == null) {
-                    System.out.println("-------------------------------");
-                    System.out.println("배송지가 입력되지 않았습니다.\n" +
-                            "배송지를 입력해주세요: ");
-                    address = scanner.nextLine();
-                }
-                if (phoneNumber == null) {
-                    System.out.println("전화번호가 입력되지 않았습니다.\n" +
-                            "전화번호를 입력해주세요: ");
-                    phoneNumber = scanner.nextLine();
-                }
+
+                System.out.println("-------------------------------");
+                System.out.print("배송지를 입력해주세요: ");
+                String address = scanner.nextLine();
+                System.out.print("전화번호를 입력해주세요: ");
+                String phoneNumber = scanner.nextLine();
+
                 System.out.println("+———————————배송 정보————————————+");
                 System.out.println(" 배송지: " + address);
                 System.out.println(" 전화번호: " + phoneNumber);
@@ -62,16 +52,16 @@ public class OrderShoes {
                 System.out.println(" 2. 실시간 계좌이체로 결제");
                 System.out.println("+——————————————————————————————+");
                 System.out.println("결제하시려면 1 또는 2를 입력하세요. (나가기: 0)");
-                System.out.println("입력 -> ");
+                System.out.print("입력 -> ");
 
                 int choice = scanner.nextInt();
                 scanner.nextLine();
                 switch (choice) {
                     case 1:
-                        OrderPurchase.orderPurchase(shoesOptionId, address, price, "Credit Card");
+                        OrderPurchase.orderPurchase(userId, shoesOptionId, address, price, "Credit Card");
                         break;
                     case 2:
-                        OrderPurchase.orderPurchase(shoesOptionId, address, price, "Bank Transfer");
+                        OrderPurchase.orderPurchase(userId, shoesOptionId, address, price, "Bank Transfer");
                         break;
                     case 0:
                         System.out.println("이전 화면으로 되돌아갑니다.");
