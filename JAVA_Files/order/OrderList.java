@@ -59,14 +59,11 @@ public class OrderList {
 
     private static void showOrderListMenu(int userId) {
         Scanner scanner = new Scanner(System.in);
-        while (true) { // 주문 번호를 입력해 주문 상세 내역을 조회
-            System.out.println("주문 상세 내역을 확인하려면 주문번호를 입력하세요.(0 입력시 나가기)");
-            System.out.print("주문번호 -> ");
-            int choice = scanner.nextInt();
-            scanner.nextLine();
-            if (choice == 0)
-                break;
+        System.out.println("주문 상세 내역을 확인하려면 주문번호를 입력하세요.(0 입력시 나가기)");
+        System.out.print("주문번호 -> ");
+        int choice = scanner.nextInt();
+        scanner.nextLine();
+        if (choice != 0)
             OrderDetail.orderDetail(userId, choice);
-        }
     }
 }

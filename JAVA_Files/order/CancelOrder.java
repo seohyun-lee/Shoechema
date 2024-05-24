@@ -38,7 +38,7 @@ public class CancelOrder {
                     if (affectedRows > 0) {
                         restoreStmt.setInt(1, shoesOptionId);
                         restoreStmt.executeUpdate();
-                        System.out.println("주문이 취소되었습니다. 재고가 복원되었습니다.");
+                        System.out.println("주문이 취소되었습니다.");
                     } else {
                         System.out.println("주문 취소에 실패했습니다.");
                     }
