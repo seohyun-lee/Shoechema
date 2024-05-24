@@ -65,7 +65,7 @@ public class OrderDetail {
             int choice = scanner.nextInt();
             scanner.nextLine();
             if (choice == 1)
-                CancelOrder.cancelOrder(orderId);
+                OrderCancel.orderCancel(orderId);
         } else {
             System.out.println("돌아가려면 아무 키나 눌러주세요.");
             System.out.print("입력 -> ");
