@@ -23,7 +23,6 @@ public class ShowDetail {
                 "JOIN ShoesOptions so ON s.shoes_id = so.shoes_id " +
                 "JOIN Sizes sz ON so.size_id = sz.size_id " +
                 "WHERE s.shoes_id = ?";
-
         //PreparedStatement 지정
         try (Connection conn = DatabaseConnection.getConnection();
              PreparedStatement pstmt = conn.prepareStatement(sql))
@@ -62,15 +61,15 @@ public class ShowDetail {
 
     private static void askOrder() {
         while (true) {
-            System.out.println("주문하기 -> [Y/N]");
+            System.out.print("주문하기 [Y/N] -> ");
             String result = scanner.nextLine();
 
-            if (result.equals("Y")) {
-                System.out.print("주문하고자 하는 제품의 번호를 입력해주세요: ");
+            if (result.equalsIgnoreCase("Y")) {
+                System.out.print("주문하고자 하는 제품의 넘버를 입력해주세요: ");
                 int shoesOptionId = scanner.nextInt();
                 OrderShoes.order(shoesOptionId);
                 break;
-            } else if (result.equals("N")) {
+            } else if (result.equalsIgnoreCase("N")) {
                 break;
             } else {
                 System.out.println("메뉴를 잘못 입력하셨습니다.");
