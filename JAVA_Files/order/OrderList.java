@@ -25,9 +25,9 @@ public class OrderList {
             pstmt.setInt(1, userId);
 
             ResultSet rs = pstmt.executeQuery();
-            boolean isEmpty = true;
+            boolean orderExists = false;
             while (rs.next()) {
-                isEmpty = false;
+                orderExists = true;
                 int orderId = rs.getInt("order_id");
                 String shoesName = rs.getString("shoes_name");
                 int sizeNumber = rs.getInt("size_number");
@@ -44,10 +44,10 @@ public class OrderList {
                 System.out.println("-------------------------------");
                 System.out.println(" 결제금액: " + orderPrice + "원");
                 System.out.println("+—————————————————————————————+");
-
-                showOrderListMenu(userId);
             }
-            if (isEmpty) {
+            if (orderExists == true)
+                showOrderListMenu(userId); // 주문 상세 내역을 확인할지 묻는 메뉴
+            else {
                 System.out.println("주문 내역이 없습니다.");
                 System.out.println("이전 페이지로 돌아가려면 아무 키나 누르세요.");
                 scanner.nextLine();

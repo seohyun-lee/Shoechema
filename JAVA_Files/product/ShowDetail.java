@@ -31,9 +31,7 @@ public class ShowDetail {
             pstmt.setInt(1, shoesId);
             //SQL 문 실행 후 ResultSet 통해 데이터 읽기
             ResultSet rs = pstmt.executeQuery();
-            boolean shoesOptionsExists = false;
-            while (rs.next()) {
-                shoesOptionsExists = true;
+            if (rs.next()) {
                 //데이터 행 읽고 객체 생성
                 Shoes shoes = new Shoes();
                 shoes.setShoesName(rs.getString("shoes_name")); //신발 이름
@@ -48,18 +46,18 @@ public class ShowDetail {
                 System.out.println(" 제품명 : " + shoes.getShoesName());
                 System.out.println(" 가격 : " + shoes.getPrice() + "원");
                 System.out.println(" 사이즈 : " + shoes.getSizeNum());
-                System.out.println(" 출시일 : " + shoes.getReleaseDate());
+                System.out.println(" 재고 : " + shoes.getQuantity() + "개");
+                System.out.println(" 제품 넘버 : " + shoes.getShoesOptId());
                 System.out.println("------------------------------");
-                System.out.println(" 상품 ID : " + shoes.getShoesOptId());
+                System.out.println(" 출시일 : " + shoes.getReleaseDate());
                 System.out.println("+—————————————————————————————+");
-            }
-            if (shoesOptionsExists == true)
                 ShowDetail.askOrder(); // 주문할지 묻는 메뉴
-            else
-                System.out.println("해당 번호로 상품을 찾지 못했습니다.");
+                return;
+            }
         } catch (SQLException e) {
             e.printStackTrace();
         }
+        System.out.println("해당 번호로 상품을 찾지 못했습니다.");
     }
 
     private static void askOrder() {
@@ -68,7 +66,7 @@ public class ShowDetail {
             String result = scanner.nextLine();
 
             if (result.equalsIgnoreCase("Y")) {
-                System.out.print("주문하고자 하는 상품의 ID를 입력해주세요: ");
+                System.out.print("주문하고자 하는 제품의 넘버를 입력해주세요: ");
                 int shoesOptionId = scanner.nextInt();
                 OrderShoes.order(shoesOptionId);
                 break;
