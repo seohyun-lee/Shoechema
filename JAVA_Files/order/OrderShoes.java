@@ -15,7 +15,7 @@ public class OrderShoes {
     public static void order(int shoesOptionId) {
         Scanner scanner = new Scanner(System.in);
         try (Connection conn = DatabaseConnection.getConnection();
-             PreparedStatement deliveryPstmt = conn.prepareStatement("SELECT * FROM Users WHERE user_id = ?");
+             PreparedStatement deliveryPstmt = conn.prepareStatement("SELECT phone_number FROM Users WHERE user_id = ?");
              PreparedStatement productPstmt = conn.prepareStatement(
                      "SELECT shoes_name, size_number, price FROM ShoesProduct WHERE shoes_option_id = ?");
         ) {
@@ -30,6 +30,7 @@ public class OrderShoes {
                 String shoesName = productRs.getString("shoes_name");
                 int sizeNumber = productRs.getInt("size_number");
                 int price = productRs.getInt("price");
+                String phoneNumber = deliveryRs.getString("phone_number");
 
                 ShopUI.printDoOrderBanner();
                 System.out.println(" 신발 제품명: " + shoesName);
@@ -37,12 +38,10 @@ public class OrderShoes {
                 System.out.println(" 수량: 1개");
                 System.out.println("-------------------------------");
                 System.out.println(" 결제 금액 " + price + "원");
-
                 System.out.println("-------------------------------");
+
                 System.out.print("배송지를 입력해주세요: ");
                 String address = scanner.nextLine();
-                System.out.print("전화번호를 입력해주세요: ");
-                String phoneNumber = scanner.nextLine();
 
                 System.out.println("+———————————배송 정보————————————+");
                 System.out.println(" 배송지: " + address);

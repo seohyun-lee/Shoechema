@@ -3,8 +3,8 @@ CREATE TABLE Users (
     user_id INTEGER NOT NULL AUTO_INCREMENT,
     email VARCHAR(64) NOT NULL,
     password VARCHAR(64) NOT NULL,
+    phone_number VARCHAR(11) NOT NULL,
     address VARCHAR(255),
-    phone_number VARCHAR(11),
     PRIMARY KEY (user_id)
 );
 

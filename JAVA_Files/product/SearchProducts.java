@@ -53,7 +53,7 @@ public class SearchProducts {
         String answer = scanner.next();
         scanner.nextLine();
 
-        if (answer.equalsIgnoreCase("y")) { // Y 또는 y 입력 시 상품 다시 검색
+        if (answer.equalsIgnoreCase("Y")) { // Y 또는 y 입력 시 상품 다시 검색
             searchProducts();
         }
         else {
