@@ -3,7 +3,7 @@ CREATE TABLE Users (
     user_id INTEGER NOT NULL AUTO_INCREMENT,
     email VARCHAR(64) NOT NULL,
     password VARCHAR(64) NOT NULL,
-    phone_number VARCHAR(11) NOT NULL,
+    phone_number VARCHAR(13) NOT NULL,
     address VARCHAR(255),
     PRIMARY KEY (user_id)
 );
