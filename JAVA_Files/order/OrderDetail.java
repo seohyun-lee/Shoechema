@@ -1,6 +1,5 @@
 package JAVA_Files.order;
 
-import JAVA_Files.MainPage;
 import JAVA_Files.UI.ShopUI;
 import JAVA_Files.util.DatabaseConnection;
 
@@ -8,6 +7,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.Scanner;
 
 public class OrderDetail {
     public static void orderDetail(int userId, int orderId) {
@@ -50,11 +50,26 @@ public class OrderDetail {
                 System.out.println(" 결제수단: " + paymentType);
                 System.out.println(" 결제금액: " + order_price + "원");
                 System.out.println("+—————————————————————————————+");
+
+                showOrderDetailMenu(orderId);
             }  else {
-                System.out.println("존재하지 않는 상품입니다.");
+                System.out.println("존재하지 않는 주문입니다.");
             }
         } catch (SQLException e) {
             e.printStackTrace();
+        }
+    }
+
+    private static void showOrderDetailMenu(int orderId) {
+        Scanner scanner = new Scanner(System.in);
+        while (true) { // 주문 번호를 입력해 주문 상세 내역을 조회
+            System.out.println("주문을 취소하려면 1을, 돌아가려면 아무 키나 눌러주세요.");
+            System.out.print("입력 -> ");
+            int choice = scanner.nextInt();
+            scanner.nextLine();
+            if (choice != 1)
+                break;
+            CancelOrder.cancelOrder(orderId);
         }
     }
 }

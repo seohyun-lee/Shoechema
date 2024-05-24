@@ -32,6 +32,7 @@ public class OrderList {
                 String orderedAt = rs.getTimestamp("ordered_at").toString();
                 String deliveryStatus = rs.getString("delivery_status");
                 int orderPrice = rs.getInt("order_price");
+
                 System.out.println(" 주문번호: " + orderId + " [주문일자: " + orderedAt + "]");
                 System.out.println("-------------------------------");
                 System.out.println(" 배송상태: " + deliveryStatus);
@@ -41,22 +42,29 @@ public class OrderList {
                 System.out.println("-------------------------------");
                 System.out.println(" 결제금액: " + orderPrice + "원");
                 System.out.println("+—————————————————————————————+");
+
+                showOrderListMenu(userId);
             }
             if (isEmpty) {
                 System.out.println("주문 내역이 없습니다.");
                 System.out.println("이전 페이지로 돌아가려면 아무 키나 누르세요.");
                 scanner.nextLine();
             }
-            while (true) { // 주문 번호를 입력해 주문 상세 내역을 조회
-                System.out.print("주문 상세를 보려면 주문번호를 입력하세요.(0 입력시 나가기): ");
-                int choice = scanner.nextInt();
-                scanner.nextLine();
-                if (choice == 0)
-                    break;
-                OrderDetail.orderDetail(userId, choice);
-            }
         } catch (SQLException e) {
             e.printStackTrace();
+        }
+    }
+
+    private static void showOrderListMenu(int userId) {
+        Scanner scanner = new Scanner(System.in);
+        while (true) { // 주문 번호를 입력해 주문 상세 내역을 조회
+            System.out.println("주문 상세 내역을 확인하려면 주문번호를 입력하세요.(0 입력시 나가기)");
+            System.out.print("주문번호 -> ");
+            int choice = scanner.nextInt();
+            scanner.nextLine();
+            if (choice == 0)
+                break;
+            OrderDetail.orderDetail(userId, choice);
         }
     }
 }
