@@ -6,7 +6,7 @@ import java.util.Date;
 
 public class Shoes {
     private int shoesId;
-    private String name;
+    private String shoesName;
     private int price;
     private Date releaseDate;
     private int shoesOptId;
@@ -22,12 +22,12 @@ public class Shoes {
         this.shoesId = shoesId;
     }
 
-    public String getName() {
-        return name;
+    public String getShoesName() {
+        return shoesName;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setShoesName(String name) {
+        this.shoesName = shoesName;
     }
 
     public int getPrice() {

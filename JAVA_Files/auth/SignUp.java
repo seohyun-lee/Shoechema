@@ -48,7 +48,7 @@ public class SignUp {
         }
     }
 
-    //존재하는 이메일인지 확인하는 메소드
+    // 존재하는 이메일인지 확인하는 메소드
     private static boolean isEmailExists(String email) {
         try (Connection conn = DatabaseConnection.getConnection();
              PreparedStatement pstmt = conn.prepareStatement("SELECT 1 FROM Users WHERE email = ?")) {

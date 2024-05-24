@@ -27,6 +27,7 @@ public class Login {
         password = scanner.nextLine();
 
         // 입력받은 정보로 로그인
+        System.out.print("로그인 중... ");
         authenticateUser(email, password);
     }
 
