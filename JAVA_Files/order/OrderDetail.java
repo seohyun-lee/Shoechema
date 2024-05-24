@@ -34,7 +34,7 @@ public class OrderDetail {
 
                 // 주문 내역 출력
                 ShopUI.printOrderDetailBanner();
-                System.out.println(" 주문번호: " + inputOrderId);
+                System.out.println("[주문번호: " + inputOrderId + "]");
                 System.out.println(" 주문일자: " + orderedAt);
                 System.out.println(" 배송상태: " + deliveryStatus);
                 System.out.println("-------------------------------");
@@ -48,7 +48,7 @@ public class OrderDetail {
                 System.out.println(" 결제금액: " + order_price + "원");
                 System.out.println("+—————————————————————————————+");
 
-                showOrderDetailMenu(inputOrderId);
+                showOrderDetailMenu(inputOrderId, deliveryStatus);
             }  else {
                 System.out.println("존재하지 않는 주문입니다.");
             }
@@ -57,16 +57,19 @@ public class OrderDetail {
         }
     }
 
-    private static void showOrderDetailMenu(int orderId) {
+    private static void showOrderDetailMenu(int orderId, String deliveryStatus) {
         Scanner scanner = new Scanner(System.in);
-        while (true) { // 주문 번호를 입력해 주문 상세 내역을 조회
-            System.out.println("주문을 취소하려면 1을, 돌아가려면 아무 키나 눌러주세요.");
+        if (deliveryStatus.equals("Processing")) {
+            System.out.println("주문을 취소하려면 1을, 돌아가려면 0을 눌러주세요.");
             System.out.print("입력 -> ");
             int choice = scanner.nextInt();
             scanner.nextLine();
-            if (choice != 1)
-                break;
-            CancelOrder.cancelOrder(orderId);
+            if (choice == 1)
+                CancelOrder.cancelOrder(orderId);
+        } else {
+            System.out.println("돌아가려면 아무 키나 눌러주세요.");
+            System.out.print("입력 -> ");
+            scanner.nextLine();
         }
     }
 }
