@@ -1,3 +1,4 @@
+# table 생성
 CREATE TABLE Users (
     user_id INTEGER NOT NULL AUTO_INCREMENT,
     email VARCHAR(64) NOT NULL,
@@ -45,6 +46,7 @@ CREATE TABLE Orders (
     FOREIGN KEY (shoes_option_id) REFERENCES ShoesOptions(shoes_option_id)
 );
 
+# view 생성
 CREATE VIEW ShoesProduct AS
 SELECT ShoesOptions.shoes_option_id,
        Shoes.shoes_name,
@@ -53,3 +55,10 @@ SELECT ShoesOptions.shoes_option_id,
 FROM ShoesOptions, Shoes, Sizes
 WHERE ShoesOptions.shoes_id = Shoes.shoes_id
   AND ShoesOptions.size_id = Sizes.size_id;
+
+# index 생성
+CREATE index UserEmail_index on Users(email);
+CREATE index ShoesName_index on Shoes(shoes_name);
+CREATE index SizeNumber_index on Sizes(size_number);
+CREATE index ShoesOptionQuantity_index on ShoesOptions(quantity);
+CREATE index OrderDeliveryStatus_index on Orders(delivery_status);
