@@ -44,11 +44,19 @@ public class OrderList {
             }
             if (isEmpty) {
                 System.out.println("주문 내역이 없습니다.");
+                System.out.println("이전 페이지로 돌아가려면 아무 키나 누르세요.");
+                scanner.nextLine();
+            }
+            while (true) { // 주문 번호를 입력해 주문 상세 내역을 조회
+                System.out.print("주문 상세를 보려면 주문번호를 입력하세요.(0 입력시 나가기): ");
+                int choice = scanner.nextInt();
+                scanner.nextLine();
+                if (choice == 0)
+                    break;
+                OrderDetail.orderDetail(userId, choice);
             }
         } catch (SQLException e) {
             e.printStackTrace();
         }
-        System.out.println("이전 페이지로 돌아가려면 아무 키나 누르세요.");
-        scanner.nextLine();
     }
 }
