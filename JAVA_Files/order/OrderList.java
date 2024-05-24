@@ -14,9 +14,11 @@ public class OrderList {
         Scanner scanner = new Scanner(System.in);
         ShopUI.printOrderListBanner();
 
-        // View를 사용한 쿼리
-        String sql = "SELECT order_id, shoes_name, size_number, ordered_at, delivery_status, order_price " +
-                "FROM Orders, ShoesProduct WHERE user_id = ?";
+        // Orders에 ShoesProduct를 Join
+        String sql = "SELECT order_id, ordered_at, shoes_name, size_number, delivery_status, order_price" +
+                " FROM Orders" +
+                " JOIN ShoesProduct ON Orders.shoes_option_id = ShoesProduct.shoes_option_id" +
+                " WHERE user_id = ?";
         try (Connection conn = DatabaseConnection.getConnection();
              PreparedStatement pstmt = conn.prepareStatement(sql);
         ) {
