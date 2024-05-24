@@ -12,15 +12,11 @@ import java.util.Scanner;
 public class OrderDetail {
     public static void orderDetail(int userId, int orderId) {
         String sql = "SELECT shoes_name, size_number, ordered_at, delivery_address, delivery_status, order_price, payment_type" +
-                " FROM Orders, ShoesOptions, Shoes, Sizes" +
-                " WHERE Shoes.shoes_id = ShoesOptions.shoes_id" +
-                " AND Sizes.size_id = ShoesOptions.size_id" +
-                " AND Orders.shoes_option_id = ShoesOptions.shoes_option_id" +
-                " AND user_id = ?" +
-                " AND order_id = ?";
+                " FROM Orders, ShoesProduct WHERE Orders.shoes_option_id = ShoesProduct.shoes_option_id" +
+                " AND user_id = ? AND order_id = ?";
 
         try (Connection conn = DatabaseConnection.getConnection();
-             PreparedStatement pstmt = conn.prepareStatement(sql);
+             PreparedStatement pstmt = conn.prepareStatement(sql)
         ) {
             pstmt.setInt(1, userId);
             pstmt.setInt(2, orderId);

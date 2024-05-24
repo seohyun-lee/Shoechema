@@ -19,10 +19,7 @@ public class OrderShoes {
                      "SELECT address, phone_number FROM Users WHERE user_id = ?");
              PreparedStatement pstmtProduct = conn.prepareStatement(
                      "SELECT shoes_name, size_number, price" +
-                             " FROM ShoesOptions, Shoes, Sizes" +
-                             " WHERE Shoes.shoes_id = ShoesOptions.shoes_id" +
-                             " AND Sizes.size_id = ShoesOptions.size_id" +
-                             " AND shoes_option_id = ?");
+                             " FROM ShoesProduct WHERE shoes_option_id = ?");
         ) {
             int userId = MainPage.loggedInUserId; // 현재 로그인된 유저 아이디 가져오기
             deliveryPstmt.setInt(1, userId);

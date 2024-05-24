@@ -17,7 +17,7 @@ public class SearchProducts {
         ShopUI.printSearchBanner(); // 검색 배너 출력
 
         //SQL문 작성
-        String sql = "SELECT * FROM Shoes WHERE name LIKE ?";
+        String sql = "SELECT * FROM Shoes WHERE shoes_name LIKE ?";
 
         //PreparedStatement 지정
         try (Connection conn = DatabaseConnection.getConnection();

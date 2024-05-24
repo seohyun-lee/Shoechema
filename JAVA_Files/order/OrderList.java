@@ -16,7 +16,7 @@ public class OrderList {
 
         // View를 사용한 쿼리
         String sql = "SELECT order_id, shoes_name, size_number, ordered_at, delivery_status, order_price " +
-                "FROM OrderSummary WHERE user_id = ?";
+                "FROM Orders, ShoesProduct WHERE user_id = ?";
         try (Connection conn = DatabaseConnection.getConnection();
              PreparedStatement pstmt = conn.prepareStatement(sql);
         ) {
