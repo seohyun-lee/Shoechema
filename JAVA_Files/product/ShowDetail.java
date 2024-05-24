@@ -31,9 +31,9 @@ public class ShowDetail {
             pstmt.setInt(1, shoesId);
             //SQL 문 실행 후 ResultSet 통해 데이터 읽기
             ResultSet rs = pstmt.executeQuery();
-            boolean shoesExists = false;
+            boolean shoesOptionsExists = false;
             while (rs.next()) {
-                shoesExists = true;
+                shoesOptionsExists = true;
                 //데이터 행 읽고 객체 생성
                 Shoes shoes = new Shoes();
                 shoes.setShoesName(rs.getString("shoes_name")); //신발 이름
@@ -53,7 +53,7 @@ public class ShowDetail {
                 System.out.println(" 상품 ID : " + shoes.getShoesOptId());
                 System.out.println("+—————————————————————————————+");
             }
-            if (shoesExists == true)
+            if (shoesOptionsExists == true)
                 ShowDetail.askOrder(); // 주문할지 묻는 메뉴
             else
                 System.out.println("해당 번호로 상품을 찾지 못했습니다.");
