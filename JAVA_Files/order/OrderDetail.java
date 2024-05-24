@@ -10,16 +10,17 @@ import java.sql.SQLException;
 import java.util.Scanner;
 
 public class OrderDetail {
-    public static void orderDetail(int userId, int orderId) {
-        String sql = "SELECT shoes_name, size_number, ordered_at, delivery_address, delivery_status, order_price, payment_type" +
-                " FROM Orders, ShoesProduct WHERE Orders.shoes_option_id = ShoesProduct.shoes_option_id" +
-                " AND user_id = ? AND order_id = ?";
-
+    public static void orderDetail(int userId, int inputOrderId) {
+        // Orders에 ShoesProduct를 Join
+        String sql =  "SELECT ordered_at, shoes_name, size_number, delivery_address, delivery_status, order_price, payment_type" +
+                " FROM Orders" +
+                " JOIN ShoesProduct ON Orders.shoes_option_id = ShoesProduct.shoes_option_id" +
+                " WHERE user_id = ? AND order_id = ?";
         try (Connection conn = DatabaseConnection.getConnection();
              PreparedStatement pstmt = conn.prepareStatement(sql)
         ) {
             pstmt.setInt(1, userId);
-            pstmt.setInt(2, orderId);
+            pstmt.setInt(2, inputOrderId);
 
             ResultSet rs = pstmt.executeQuery();
             if (rs.next()) {
@@ -33,7 +34,7 @@ public class OrderDetail {
 
                 // 주문 내역 출력
                 ShopUI.printOrderDetailBanner();
-                System.out.println(" 주문번호: " + orderId);
+                System.out.println(" 주문번호: " + inputOrderId);
                 System.out.println(" 주문일자: " + orderedAt);
                 System.out.println(" 배송상태: " + deliveryStatus);
                 System.out.println("-------------------------------");
@@ -47,7 +48,7 @@ public class OrderDetail {
                 System.out.println(" 결제금액: " + order_price + "원");
                 System.out.println("+—————————————————————————————+");
 
-                showOrderDetailMenu(orderId);
+                showOrderDetailMenu(inputOrderId);
             }  else {
                 System.out.println("존재하지 않는 주문입니다.");
             }
