@@ -13,6 +13,8 @@ public class Shoes {
     private int sizeId;
     private int quantity;
     private int sizeNum;
+    private int shoeOptCount;
+
 
     public int getShoesId() {
         return shoesId;
@@ -76,5 +78,13 @@ public class Shoes {
 
     public void setSizeNum(int sizeNum) {
         this.sizeNum = sizeNum;
+    }
+
+    public int getShoeOptCount() {
+        return shoeOptCount;
+    }
+
+    public void setShoeOptCount(int shoeOptCount) {
+        this.shoeOptCount = shoeOptCount;
     }
 }
