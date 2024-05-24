@@ -37,11 +37,10 @@ public class OrderList {
 
                 System.out.println("[주문번호: " + orderId + "]");
                 System.out.println(" 주문일자: " + orderedAt);
-                System.out.println("-------------------------------");
                 System.out.println(" 배송상태: " + deliveryStatus);
                 System.out.println("-------------------------------");
                 System.out.println(" 제품명: " + shoesName);
-                System.out.println(" 사이즈: " + sizeNumber + " | 1개");
+                System.out.println(" 사이즈: " + sizeNumber + " (1개)");
                 System.out.println("-------------------------------");
                 System.out.println(" 결제금액: " + orderPrice + "원");
                 System.out.println("+—————————————————————————————+");
