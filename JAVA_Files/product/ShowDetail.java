@@ -14,6 +14,7 @@ import java.util.Scanner;
 public class ShowDetail {
     private static Scanner scanner = new Scanner(System.in);
 
+    // 상품 번호를 입력하면, 해당 상품 번호에 해당하는 신발 데이터의 이름, 가격, 사이즈, 재고, 제품 넘버, 출시일을 모두 제시하는 메서드
     public static void showDetail() {
         ShopUI.printDetailResultBanner();
         System.out.print("상품 번호 입력 -> ");
@@ -46,7 +47,7 @@ public class ShowDetail {
                 shoes.setShoesOptId(rs.getInt("shoes_option_id")); //shoes_option_id -> 제품 주문하기로 이어지는 매개변수
 
                 //콘솔에 출력
-                System.out.println("+—————————————————————————————+");
+                System.out.println("+――――――――――――――――――+");
                 System.out.println(" 상품명 : " + shoes.getShoesName());
                 System.out.println(" 가격 : " + shoes.getPrice() + "원");
                 System.out.println(" 사이즈 : " + shoes.getSizeNum());
@@ -56,7 +57,7 @@ public class ShowDetail {
                 System.out.println(" 상품 넘버 : " + shoes.getShoesOptId());
             }
             if (shoesExists == true) {
-                System.out.println("+—————————————————————————————+");
+                System.out.println("+――――――――――――――――――+");
                 ShowDetail.askOrder(); // 주문할지 묻는 메뉴
             }
             else
@@ -66,6 +67,7 @@ public class ShowDetail {
         }
     }
 
+    // 주문하기 여부를 물어보는 메서드
     private static void askOrder() {
         while (true) {
             System.out.print("주문하기 [Y/N] -> ");

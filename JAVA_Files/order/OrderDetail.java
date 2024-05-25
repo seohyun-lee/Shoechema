@@ -11,6 +11,7 @@ import java.util.Scanner;
 
 // 개별 주문의 상세 내역 조회 로직을 구현한 클래스
 public class OrderDetail {
+    // 선택한 주문의 상세 내역을 조회하여 출력하도록 하는 메서드
     public static void orderDetail(int userId, int inputOrderId) {
         // Orders에 ShoesProduct를 Join
         String sql =  "SELECT ordered_at, shoes_name, size_number, delivery_address, delivery_status, order_price, payment_type" +
@@ -38,16 +39,16 @@ public class OrderDetail {
                 System.out.println("[주문번호 : " + inputOrderId + "]");
                 System.out.println(" 주문일자 : " + orderedAt);
                 System.out.println(" 배송상태 : " + deliveryStatus);
-                System.out.println("+———————————제품정보————————————+");
+                System.out.println("+―――――――제품정보―――――――+");
                 System.out.println(" 제품명 : " + shoesName);
                 System.out.println(" 사이즈 : " + sizeNumber);
                 System.out.println(" 수량 : 1개");
-                System.out.println("+———————————배송정보————————————+");
+                System.out.println("+―――――――배송정보―――――――+");
                 System.out.println(" 배송지 : " + deliveryAddress);
-                System.out.println("+———————————결제정보————————————+");
+                System.out.println("+―――――――결제정보―――――――+");
                 System.out.println(" 결제수단 : " + paymentType);
                 System.out.println(" 결제금액 : " + order_price + "원");
-                System.out.println("+—————————————————————————————+");
+                System.out.println("+――――――――――――――――――+");
 
                 showOrderDetailMenu(inputOrderId, deliveryStatus);
             } else {
@@ -57,7 +58,7 @@ public class OrderDetail {
             e.printStackTrace();
         }
     }
-
+    // 선택된 주문의 배송 상태가 Processing인 경우, 해당 주문을 취소(삭제)하려고 하는지 의사를 묻는 메서드
     private static void showOrderDetailMenu(int orderId, String deliveryStatus) {
         Scanner scanner = new Scanner(System.in);
         if (deliveryStatus.equals("Processing")) {

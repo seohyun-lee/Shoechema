@@ -19,7 +19,7 @@ public class ProductMenu {
         System.out.println("------------------------------");
         System.out.println(" 4. 마이 페이지");
         System.out.println(" 5. 메인 페이지");
-        System.out.println("+——————————————————————————————+");
+        System.out.println("+――――――――――――――――――+");
 
         System.out.print("메뉴 번호 입력 -> ");
         int menu = scanner.nextInt();

@@ -44,7 +44,7 @@ public class OrderList {
                 System.out.println(" 제품명 : " + shoesName);
                 System.out.println(" 사이즈 : " + sizeNumber + " (1개)");
                 System.out.println(" 결제금액 : " + orderPrice + "원");
-                System.out.println("+—————————————————————————————+");
+                System.out.println("+――――――――――――――――――+");
             }
             if (orderExists == true)
                 showOrderListMenu(userId);

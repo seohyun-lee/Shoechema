@@ -6,12 +6,13 @@ import JAVA_Files.auth.Login;
 
 import java.util.Scanner;
 
-// 로그인 전 메인페이지
+// 로그인을 하지 않은 사용자가 접근하는 게스트페이지
 public class GuestPage {
     public static void main(String[] args) {
         guestMainPage();
     }
 
+    // 게스트페이지 로직 메서드
     public static void guestMainPage() {
         Scanner scanner = new Scanner(System.in);
 
@@ -29,10 +30,10 @@ public class GuestPage {
             scanner.nextLine();
 
             switch (choice) {
-                case 1: // 사용자가 1을 입력한 경우, 회원가입 화면으로 이동
+                case 1: // 사용자가 1을 입력한 경우, 회원가입 로직 실행
                     SignUp.signUp();
                     break;
-                case 2: // 사용자가 2를 입력한 경우, 로그인 화면으로 이동
+                case 2: // 사용자가 2를 입력한 경우, 로그인 로직 실행
                     Login.login();
                     break;
                 default: // 1 또는 2가 아닌 다른 입력이 들어온 경우, 재입력을 요청

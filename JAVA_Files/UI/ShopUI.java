@@ -32,9 +32,9 @@ public class ShopUI {
         System.out.println("+==========================================================+");
     }
     public static void printChangeAddressBanner() { // 주소 변경 배너
-        System.out.println("+——————————————————————————————+");
+        System.out.println("+―――――――――――――――――――+");
         System.out.println("|           주소 변경            |");
-        System.out.println("+——————————————————————————————+");
+        System.out.println("+―――――――――――――――――――+");
     }
 
     // product 배너들
@@ -44,9 +44,9 @@ public class ShopUI {
         System.out.println("+==========================================================+");
     }
     public static void printSearchResultBanner() { // 신발 검색 결과 배너
-        System.out.println("+——————————————————————————————+");
-        System.out.println("|         신발 검색 결과         |");
-        System.out.println("+——————————————————————————————+");
+        System.out.println("+―――――――――――――――――――+");
+        System.out.println("|         신발 검색 결과          |");
+        System.out.println("+―――――――――――――――――――+");
     }
     public static void printDetailResultBanner() { // 신발 상세 정보 배너
         System.out.println("+==========================================================+");
@@ -54,9 +54,9 @@ public class ShopUI {
         System.out.println("+==========================================================+");
     }
     public static void printProductMenuBanner() { // 메뉴 배너
-        System.out.println("+——————————————————————————————+");
+        System.out.println("+―――――――――――――――――――+");
         System.out.println("|             메뉴              |");
-        System.out.println("+——————————————————————————————+");
+        System.out.println("+―――――――――――――――――――+");
     }
     public static void printNewProductsBanner() { // 신상품 목록 배너
         System.out.println("+==========================================================+");
@@ -66,9 +66,9 @@ public class ShopUI {
 
     // order 배너들
     public static void printDoOrderBanner() { // 주문하기 배너
-        System.out.println("+——————————————————————————————+");
+        System.out.println("+―――――――――――――――――――+");
         System.out.println("|            주문하기            |");
-        System.out.println("+——————————————————————————————+");
+        System.out.println("+―――――――――――――――――――+");
     }
     public static void printOrderListBanner() { // 주문 목록 배너
         System.out.println("+==========================================================+");
@@ -76,9 +76,9 @@ public class ShopUI {
         System.out.println("+==========================================================+");
     }
     public static void printOrderDetailBanner() { // 주문 상세 배너
-        System.out.println("+——————————————————————————————+");
-        System.out.println("|           주문 상세           |");
-        System.out.println("+——————————————————————————————+");
+        System.out.println("+―――――――――――――――――――+");
+        System.out.println("|           주문 상세            |");
+        System.out.println("+―――――――――――――――――――+");
     }
     
     // GuestPage의 프로모션 텍스트

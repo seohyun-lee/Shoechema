@@ -9,7 +9,7 @@ import java.util.Scanner;
 
 // 로그인 후 메인페이지
 public class MainPage {
-    public static int loggedInUserId = -1;
+    public static int loggedInUserId = -1; // 로그인된 사용자의 user_id가 담기는 전역변수
 
     public static void main() {
         Scanner scanner = new Scanner(System.in);
@@ -24,21 +24,22 @@ public class MainPage {
             System.out.println("| 3. 마이 페이지\t\t\t\t|");
             System.out.println("+———————————————————————————+");
             System.out.print("원하시는 메뉴 번호를 입력해주세요: ");
-            int choice = scanner.nextInt();
+
+            int choice = scanner.nextInt(); // 사용자로부터 번호를 입력받음
             scanner.nextLine();
 
             switch (choice) {
-                case 1:
+                case 1: // 사용자가 1을 입력한 경우, 신상품 보기
                     ShowNewProducts.showNewProducts();
                     break;
-                case 2:
+                case 2: // 사용자가 2을 입력한 경우, 상품을 검색하기
                     SearchProducts.searchProducts();
                     break;
-                case 3:
+                case 3: // 사용자가 3을 입력한 경우, 마이 페이지
                     UserProfile.showUserProfile();
                     break;
-                default:
-                    System.out.println("잘못된 입력입니다.");
+                default: // 1~3이 아닌 다른 입력이 들어온 경우, 재입력을 요청
+                    System.out.println("잘못된 입력입니다. 다시 입력해주세요.");
             }
         }
     }

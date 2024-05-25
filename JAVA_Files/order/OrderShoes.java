@@ -44,13 +44,13 @@ public class OrderShoes {
                 System.out.print("배송지를 입력해주세요: ");
                 String address = scanner.nextLine();
 
-                System.out.println("+———————————배송 정보————————————+");
+                System.out.println("+―――――――배송정보―――――――+");
                 System.out.println(" 배송지 : " + address);
                 System.out.println(" 전화번호 : " + phoneNumber);
-                System.out.println("+———————————결제수단————————————+");
+                System.out.println("+―――――――결제수단―――――――+");
                 System.out.println(" 1. 신용카드로 결제");
                 System.out.println(" 2. 실시간 계좌이체로 결제");
-                System.out.println("+——————————————————————————————+");
+                System.out.println("+――――――――――――――――――+");
                 System.out.println("결제하시려면 1 또는 2를 입력하세요. (나가기: 0)");
                 System.out.print("입력 -> ");
 

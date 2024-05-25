@@ -32,15 +32,15 @@ public class UserProfile {
                 String phoneNumber = rs.getString("phone_number");
                 String address = rs.getString("address");
 
-                System.out.println("+———————————내 정보———————————+");
+                System.out.println("+―――――――내 정보―――――――+");
                 System.out.println(" 이메일: " + userEmail);
                 System.out.println(" 전화번호: " + phoneNumber);
                 System.out.println(" 주소: " + address);
-                System.out.println("+————————————메뉴—————————————+");
+                System.out.println("+――――――――메뉴――――――――+");
                 System.out.println(" 1. 주소 변경");
                 System.out.println(" 2. 내 주문 보기");
                 System.out.println(" 3. 마이페이지 나가기");
-                System.out.println("+————————————————————————————+");
+                System.out.println("+――――――――――――――――――+");
                 System.out.print("원하시는 메뉴 번호를 입력해주세요: ");
                 int choice = scanner.nextInt();
                 scanner.nextLine();

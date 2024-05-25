@@ -9,7 +9,7 @@ import java.sql.SQLException;
 
 // 결제 진행 로직을 구현한 클래스
 public class OrderPurchase {
-
+    // 트랜잭션으로 결제를 진행하는 메서드, 성공 시 Orders 테이블에 새로운 주문 튜플을 삽입
     public static void orderPurchase(int userId, int shoesOptionId, String deliveryAddress, int orderPrice, String paymentType) {
         String sql = "INSERT INTO Orders (user_id, shoes_option_id, delivery_address, delivery_status, order_price, payment_type) " +
                 "VALUES (?, ?, ?, ?, ?, ?)";
@@ -49,6 +49,7 @@ public class OrderPurchase {
         }
     }
 
+    // 매개변수로 Connection 객체와 신발옵션 아이디를 받아, 트랜잭션 내에서 신발옵션 튜플의 재고 개수를 1 감소시키는 메서드
     private static boolean decreaseShoesOptionQuantity(Connection conn, int shoesOptionId) throws SQLException {
         String checkSql = "SELECT quantity FROM ShoesOptions WHERE shoes_option_id = ?";
         String updateSql = "UPDATE ShoesOptions SET quantity = quantity - 1 WHERE shoes_option_id = ?";

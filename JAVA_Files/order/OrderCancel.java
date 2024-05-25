@@ -11,6 +11,7 @@ import java.sql.SQLException;
 
 // 사용자로부터 입력받은 번호의 주문을 취소하는 로직을 구현한 클래스
 public class OrderCancel {
+    // orderId를 받아 해당 주문의 삭제 로직을 처리하는 메서드
     public static void orderCancel(int orderId) {
         // 현재 로그인된 유저 아이디 가져오기
         int userId = MainPage.loggedInUserId;
@@ -41,7 +42,7 @@ public class OrderCancel {
         }
     }
 
-    // 주문 취소와 재고 개수 1 증가를 구현하는 메서드
+    // 트랜잭션을 적용하여 주문 취소와 재고 개수 1 증가를 구현하는 메서드
     private static void orderCancelTransaction(int orderId, int shoesOptionId) {
         // Orders 테이블에서 주어진 order_id를 갖는 주문을 취소(삭제)하는 SQL 쿼리
         String deleteSql = "DELETE FROM Orders WHERE order_id = ?";

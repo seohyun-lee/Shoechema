@@ -11,7 +11,6 @@ public class Shoes {
     private int price; //price -> 신발 가격
     private Date releaseDate; //realease_date -> 신발 출시일
     private int shoesOptId; //shoes_option_id -> 신발 옵션 id
-    private int sizeId; //size_id -> 사이즈 id
     private int quantity; //quantity -> 재고
     private int sizeNum; //size_number -> 사이즈 숫자
 
@@ -55,14 +54,6 @@ public class Shoes {
 
     public void setShoesOptId(int shoesOptId) {
         this.shoesOptId = shoesOptId;
-    }
-
-    public int getSizeId() {
-        return sizeId;
-    }
-
-    public void setSizeId(int sizeId) {
-        this.sizeId = sizeId;
     }
 
     public int getQuantity() {
