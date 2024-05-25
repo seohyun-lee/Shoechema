@@ -8,10 +8,12 @@ import java.sql.ResultSet;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
+import java.util.Scanner;
 
 public class ShowNewProducts {
 
     public static void showNewProducts() {
+        Scanner scanner = new Scanner(System.in);
         ShopUI.printNewProductsBanner();
 
         //SQL문 작성
@@ -49,6 +51,13 @@ public class ShowNewProducts {
         } catch (SQLException e) {
             e.printStackTrace();
         }
-        ProductMenu.showProductMenu();
+        System.out.print("상품의 상세 정보를 보시겠습니까? [Y/N] -> ");
+        String answer = scanner.nextLine();
+        if (answer.equalsIgnoreCase("Y")) { // Y 또는 y 입력 시 상품 다시 검색
+            ShowDetail.showDetail();
+        }
+        else {
+            ProductMenu.showProductMenu();
+        }
     }
 }
