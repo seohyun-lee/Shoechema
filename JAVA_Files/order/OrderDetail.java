@@ -60,12 +60,12 @@ public class OrderDetail {
     private static void showOrderDetailMenu(int orderId, String deliveryStatus) {
         Scanner scanner = new Scanner(System.in);
         if (deliveryStatus.equals("Processing")) {
-            System.out.println("주문을 취소하려면 1을, 돌아가려면 0을 눌러주세요.");
+            System.out.println("주문을 삭제하려면 1을, 돌아가려면 0을 눌러주세요.");
             System.out.print("입력 -> ");
             int choice = scanner.nextInt();
             scanner.nextLine();
             if (choice == 1)
-                OrderCancel.orderCancel(orderId);
+                OrderDelete.orderdelete(orderId);
         } else {
             System.out.println("돌아가려면 아무 키나 눌러주세요.");
             System.out.print("입력 -> ");
