@@ -76,7 +76,7 @@ public class SignUp {
         }
     }
 
-    // 존재하는 이메일인지 확인하는 메소드
+    // 존재하는 이메일인지 확인하는 메서드
     private static boolean isEmailExists(String email) {
         try (Connection conn = DatabaseConnection.getConnection();
              PreparedStatement pstmt = conn.prepareStatement("SELECT 1 FROM Users WHERE email = ?")) {
@@ -91,7 +91,7 @@ public class SignUp {
         return false;
     }
 
-    //유저 등록 메소드
+    //유저 등록 메서드
     private static boolean registerUser(String email, String password, String phoneNumber, String address) {
         try (Connection conn = DatabaseConnection.getConnection();
              PreparedStatement pstmt = conn.prepareStatement("INSERT INTO Users (email, password, address, phone_number) VALUES (?, ?, ?, ?)")) {

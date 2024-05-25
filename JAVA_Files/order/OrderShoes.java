@@ -10,18 +10,19 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.Scanner;
 
+// 주문서 작성 로직을 구현한 클래스
 public class OrderShoes {
-
+    // 선택한 신발옵션을 주문하는 메서드
     public static void order(int shoesOptionId) {
         Scanner scanner = new Scanner(System.in);
+
         try (Connection conn = DatabaseConnection.getConnection();
              PreparedStatement deliveryPstmt = conn.prepareStatement("SELECT phone_number FROM Users WHERE user_id = ?");
-             PreparedStatement productPstmt = conn.prepareStatement(
-                     "SELECT shoes_name, size_number, price FROM ShoesProduct WHERE shoes_option_id = ?");
+             PreparedStatement productPstmt = conn.prepareStatement("SELECT shoes_name, size_number, price FROM ShoesProduct WHERE shoes_option_id = ?");
         ) {
             int userId = MainPage.loggedInUserId; // 현재 로그인된 유저 아이디 가져오기
             deliveryPstmt.setInt(1, userId);
-            ResultSet deliveryRs = deliveryPstmt.executeQuery(); // 유저 아이디로 유저 정보 가져오기
+            ResultSet deliveryRs = deliveryPstmt.executeQuery();
 
             productPstmt.setInt(1, shoesOptionId);
             ResultSet productRs = productPstmt.executeQuery();

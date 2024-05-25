@@ -9,6 +9,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.Scanner;
 
+// 개별 주문의 상세 조회 로직을 구현한 클래스
 public class OrderDetail {
     public static void orderDetail(int userId, int inputOrderId) {
         // Orders에 ShoesProduct를 Join
@@ -64,8 +65,9 @@ public class OrderDetail {
             System.out.print("입력 -> ");
             int choice = scanner.nextInt();
             scanner.nextLine();
-            if (choice == 1)
-                OrderCancel.orderCancel(orderId);
+            if (choice == 0)
+                return;
+            OrderCancel.orderCancel(orderId);
         } else {
             System.out.println("돌아가려면 아무 키나 눌러주세요.");
             System.out.print("입력 -> ");

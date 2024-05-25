@@ -13,7 +13,7 @@ import java.sql.SQLException;
 import java.util.Scanner;
 
 public class UserProfile {
-    // 유저 정보 조회 메소드
+    // 유저 정보 조회 메서드
     public static void showUserProfile() {
         Scanner scanner = new Scanner(System.in);
         ShopUI.printUserProfileBanner(); // 유저 정보 배너 출력
@@ -69,7 +69,7 @@ public class UserProfile {
         }
     }
 
-    // 주소 변경 메소드
+    // 주소 변경 메서드
     private static void updateAddress(int userId, Scanner scanner) {
         ShopUI.printChangeAddressBanner(); // 주소 변경 배너 출력
         System.out.print("새로운 주소를 입력해주세요: ");

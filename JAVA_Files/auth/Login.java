@@ -31,7 +31,7 @@ public class Login {
         authenticateUser(email, password);
     }
 
-    // 입력받은 이메일과 비밀번호로 로그인하는 메소드
+    // 입력받은 이메일과 비밀번호로 로그인하는 메서드
     private static void authenticateUser(String email, String password) {
         try (Connection conn = DatabaseConnection.getConnection();
              PreparedStatement pstmt = conn.prepareStatement("SELECT user_id, password FROM Users WHERE email = ?"))

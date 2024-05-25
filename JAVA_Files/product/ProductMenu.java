@@ -8,7 +8,7 @@ import java.util.Scanner;
 
 public class ProductMenu {
 
-    // SearchProducts, ShowNewProducts, ShowDetail에서 호출하는 메뉴 메소드
+    // SearchProducts, ShowNewProducts, ShowDetail에서 호출하는 메뉴 메서드
     public static void showProductMenu() {
         Scanner scanner = new Scanner(System.in);
         ShopUI.printProductMenuBanner();

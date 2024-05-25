@@ -9,7 +9,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-// 주문 삭제 로직 구현 클래스
+// 선택한 주문을 취소하는 로직을 구현한 클래스
 public class OrderCancel {
     public static void orderCancel(int orderId) {
         // 현재 로그인된 유저 아이디 가져오기
@@ -41,7 +41,7 @@ public class OrderCancel {
         }
     }
 
-    // 주문 취소와 재고 개수 1 증가를 구현하는 메소드
+    // 주문 취소와 재고 개수 1 증가를 구현하는 메서드
     private static void orderCancelTransaction(int orderId, int shoesOptionId) {
         // Orders 테이블에서 주어진 order_id를 갖는 주문을 취소(삭제)하는 SQL 쿼리
         String deleteSql = "DELETE FROM Orders WHERE order_id = ?";

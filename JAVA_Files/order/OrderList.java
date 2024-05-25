@@ -9,8 +9,10 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.Scanner;
 
+// 주문 목록 조회 로직을 구현한 클래스
 public class OrderList {
-    public static void orderList(int userId) { //현재 로그인된 유저 아이디를 받는다
+    // 유저 아이디룰 받아 주문 목록을 조회하는 메서드
+    public static void orderList(int userId) {
         Scanner scanner = new Scanner(System.in);
         ShopUI.printOrderListBanner();
 
@@ -45,7 +47,7 @@ public class OrderList {
                 System.out.println("+—————————————————————————————+");
             }
             if (orderExists == true)
-                showOrderListMenu(userId); // 주문 상세 내역을 확인할지 묻는 메뉴
+                showOrderListMenu(userId);
             else {
                 System.out.println("주문 내역이 없습니다.");
                 System.out.println("이전 페이지로 돌아가려면 아무 키나 누르세요.");
@@ -56,13 +58,15 @@ public class OrderList {
         }
     }
 
+    // 주문의 상세 내역을 확인할지 묻는 메서드
     private static void showOrderListMenu(int userId) {
         Scanner scanner = new Scanner(System.in);
         System.out.println("주문 상세 내역을 확인하려면 주문번호를 입력하세요.(0 입력시 나가기)");
         System.out.print("주문번호 -> ");
-        int choice = scanner.nextInt();
+        int choice = scanner.nextInt(); // 주문번호를 입력받아 주문 상세 조회를 구현한 메서드 전달한다.
         scanner.nextLine();
-        if (choice != 0)
-            OrderDetail.orderDetail(userId, choice);
+        if (choice == 0)
+            return;
+        OrderDetail.orderDetail(userId, choice);
     }
 }

@@ -7,6 +7,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
+// 결제 진행 로직 구현 클래스
 public class OrderPurchase {
 
     public static void orderPurchase(int userId, int shoesOptionId, String deliveryAddress, int orderPrice, String paymentType) {
