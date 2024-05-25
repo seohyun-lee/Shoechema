@@ -9,7 +9,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.Scanner;
 
-// 검색 페이지
+// 상품 검색 페이지
 public class SearchProducts {
 
     public static void searchProducts() {

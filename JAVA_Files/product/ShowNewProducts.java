@@ -17,7 +17,6 @@ public class ShowNewProducts {
         ShopUI.printNewProductsBanner();
 
         //SQL문 작성
-//        String sql = "SELECT shoes_name, price, shoes_id FROM Shoes ORDER BY release_date DESC LIMIT 5";
         String sql = "SELECT s.shoes_id, s.shoes_name, s.price, s.release_date, " +
                 "GROUP_CONCAT(DISTINCT sz.size_number ORDER BY sz.size_number ASC) AS sizes " +
                 "FROM (SELECT * FROM Shoes ORDER BY release_date DESC LIMIT 5) AS s " +

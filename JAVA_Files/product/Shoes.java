@@ -4,18 +4,19 @@ package JAVA_Files.product;
 import java.util.Date;
 
 
+// 신발 관련 데이터 저장할 클래스
 public class Shoes {
-    private int shoesId;
-    private String shoesName;
-    private int price;
-    private Date releaseDate;
-    private int shoesOptId;
-    private int sizeId;
-    private int quantity;
-    private int sizeNum;
-    private int shoeOptCount;
+    private int shoesId; //shoes_id -> 신발 id
+    private String shoesName; //shoes_name -> 신발 이름
+    private int price; //price -> 신발 가격
+    private Date releaseDate; //realease_date -> 신발 출시일
+    private int shoesOptId; //shoes_option_id -> 신발 옵션 id
+    private int sizeId; //size_id -> 사이즈 id
+    private int quantity; //quantity -> 재고
+    private int sizeNum; //size_number -> 사이즈 숫자
 
 
+    //각 데이터 getter, setter 추가
     public int getShoesId() {
         return shoesId;
     }
@@ -80,11 +81,4 @@ public class Shoes {
         this.sizeNum = sizeNum;
     }
 
-    public int getShoeOptCount() {
-        return shoeOptCount;
-    }
-
-    public void setShoeOptCount(int shoeOptCount) {
-        this.shoeOptCount = shoeOptCount;
-    }
 }
