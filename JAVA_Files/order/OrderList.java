@@ -61,12 +61,12 @@ public class OrderList {
     // 주문의 상세 내역을 확인할지 묻는 메서드
     private static void showOrderListMenu(int userId) {
         Scanner scanner = new Scanner(System.in);
-        System.out.println("주문 상세 내역을 확인하려면 주문번호를 입력하세요.(0 입력시 나가기)");
+        System.out.println("주문의 상세 내역을 확인하려면 주문번호를 입력하세요.(0 입력시 나가기)");
         System.out.print("주문번호 -> ");
-        int choice = scanner.nextInt(); // 주문번호를 입력받아 주문 상세 조회를 구현한 메서드 전달한다.
+        int orderId = scanner.nextInt(); // 주문번호를 입력받아 주문 상세 조회를 구현한 메서드 전달한다.
         scanner.nextLine();
-        if (choice == 0)
+        if (orderId == 0)
             return;
-        OrderDetail.orderDetail(userId, choice);
+        OrderDetail.orderDetail(userId, orderId);
     }
 }

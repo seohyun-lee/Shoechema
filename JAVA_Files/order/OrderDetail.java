@@ -9,7 +9,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.Scanner;
 
-// 개별 주문의 상세 조회 로직을 구현한 클래스
+// 개별 주문의 상세 내역 조회 로직을 구현한 클래스
 public class OrderDetail {
     public static void orderDetail(int userId, int inputOrderId) {
         // Orders에 ShoesProduct를 Join
@@ -50,7 +50,7 @@ public class OrderDetail {
                 System.out.println("+—————————————————————————————+");
 
                 showOrderDetailMenu(inputOrderId, deliveryStatus);
-            }  else {
+            } else {
                 System.out.println("존재하지 않는 주문입니다.");
             }
         } catch (SQLException e) {
