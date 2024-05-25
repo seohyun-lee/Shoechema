@@ -64,8 +64,8 @@ public class SignUp {
         address = scanner.nextLine();
         if (address.isBlank()) {
             address = null;
-        } else if (address.length() > 64) {
-            address = address.substring(0, 64); // 64byte만 저장
+        } else if (address.length() > 255) {
+            address = address.substring(0, 255); // 255byte만 저장
         }
 
         //입력받은 정보로 유저 등록

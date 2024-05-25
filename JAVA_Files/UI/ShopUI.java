@@ -1,6 +1,7 @@
 package JAVA_Files.UI;
 
 public class ShopUI {
+    // GuestPage, MainPage 배너
     public static void printShopBanner() { // 쇼핑몰 배너
         System.out.println();
         System.out.println("+==========================================================+");

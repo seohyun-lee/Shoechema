@@ -66,10 +66,10 @@ public class OrderShoes {
                         System.out.println("이전 화면으로 되돌아갑니다.");
                         break;
                     default:
-                        System.out.println("입력 오류로 결제에 실패했습니다.");
+                        System.out.println("입력 오류로 주문에 실패했습니다.");
                 }
             } else {
-                System.out.println("상품 또는 사용자가 유효하지 않습니다.");
+                System.out.println("제품 또는 사용자가 유효하지 않습니다.");
             }
         } catch (SQLException e) {
             e.printStackTrace();
