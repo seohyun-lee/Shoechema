@@ -33,7 +33,11 @@ public class OrderPurchase {
                         conn.commit(); // 모든 작업이 성공했으므로 커밋
                     } else {
                         System.out.println("상품의 주문이 불가능합니다.");
+                        conn.rollback(); // 주문 삽입 실패 시 롤백
                     }
+                } else {
+                    System.out.println("재고가 부족하여 주문이 불가능합니다.");
+                    conn.rollback(); // 재고 감소 실패 시 롤백
                 }
             } catch (SQLException e) {
                 conn.rollback();  // 예외 발생 시 롤백
