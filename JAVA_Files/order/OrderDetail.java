@@ -37,7 +37,7 @@ public class OrderDetail {
                 System.out.println("[주문번호 : " + inputOrderId + "]");
                 System.out.println(" 주문일자 : " + orderedAt);
                 System.out.println(" 배송상태 : " + deliveryStatus);
-                System.out.println("-------------------------------");
+                System.out.println("+———————————제품정보————————————+");
                 System.out.println(" 제품명 : " + shoesName);
                 System.out.println(" 사이즈 : " + sizeNumber);
                 System.out.println(" 수량 : 1개");
@@ -60,12 +60,12 @@ public class OrderDetail {
     private static void showOrderDetailMenu(int orderId, String deliveryStatus) {
         Scanner scanner = new Scanner(System.in);
         if (deliveryStatus.equals("Processing")) {
-            System.out.println("주문을 삭제하려면 1을, 돌아가려면 0을 눌러주세요.");
+            System.out.println("주문을 취소(삭제)하려면 1을, 돌아가려면 0을 눌러주세요.");
             System.out.print("입력 -> ");
             int choice = scanner.nextInt();
             scanner.nextLine();
             if (choice == 1)
-                OrderDelete.orderdelete(orderId);
+                OrderCancel.orderCancel(orderId);
         } else {
             System.out.println("돌아가려면 아무 키나 눌러주세요.");
             System.out.print("입력 -> ");
