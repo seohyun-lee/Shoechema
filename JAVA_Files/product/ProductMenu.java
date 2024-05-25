@@ -6,6 +6,7 @@ import JAVA_Files.auth.UserProfile;
 
 import java.util.Scanner;
 
+//메뉴 제시 페이지
 public class ProductMenu {
 
     // SearchProducts, ShowNewProducts, ShowDetail에서 호출하는 메뉴 메소드
