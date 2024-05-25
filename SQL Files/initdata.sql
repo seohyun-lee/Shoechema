@@ -50,10 +50,3 @@ INSERT INTO Orders (user_id, shoes_option_id, ordered_at, delivery_address, deli
 (5, 11, '2024-05-10 09:20:00', '202 Birch Boulevard, Metropolis', 'Shipped', 110000, 'Bank Transfer'),
 (4, 8, '2024-05-15 13:55:00', '123 Maple Street, Cityville', 'Shipped', 250000, 'Credit Card'),
 (2, 10, '2024-05-17 11:30:00', '456 Oak Avenue, Townsville', 'Processing', 60000, 'Bank Transfer');
-
--- 확인용
-select * from Users;
-select * from Shoes;
-select * from Sizes;
-select * from ShoesOptions;
-select * from Orders;
