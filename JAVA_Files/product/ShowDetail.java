@@ -1,5 +1,6 @@
 package JAVA_Files.product;
 
+import JAVA_Files.UI.ShopUI;
 import JAVA_Files.order.OrderShoes;
 import JAVA_Files.util.DatabaseConnection;
 
@@ -14,6 +15,7 @@ public class ShowDetail {
     private static Scanner scanner = new Scanner(System.in);
 
     public static void showDetail() {
+        ShopUI.printDetailResultBanner();
         System.out.print("상품 번호 입력 -> ");
         int shoesId = scanner.nextInt();
         scanner.nextLine();
@@ -52,10 +54,11 @@ public class ShowDetail {
                 System.out.println(" 출시일 : " + shoes.getReleaseDate());
                 System.out.println("------------------------------");
                 System.out.println(" 상품 넘버 : " + shoes.getShoesOptId());
-                System.out.println("+—————————————————————————————+");
             }
-            if (shoesExists == true)
+            if (shoesExists == true) {
+                System.out.println("+—————————————————————————————+");
                 ShowDetail.askOrder(); // 주문할지 묻는 메뉴
+            }
             else
                 System.out.println("해당 넘버로 상품을 찾지 못했습니다.");
         } catch (SQLException e) {

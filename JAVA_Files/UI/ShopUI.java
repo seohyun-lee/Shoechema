@@ -47,6 +47,11 @@ public class ShopUI {
         System.out.println("|         신발 검색 결과         |");
         System.out.println("+——————————————————————————————+");
     }
+    public static void printDetailResultBanner() { // 신발 상세 정보 배너
+        System.out.println("+==========================================================+");
+        System.out.println("|                   ~~~ 신발 상세 정보 ~~~                    |");
+        System.out.println("+==========================================================+");
+    }
     public static void printProductMenuBanner() { // 메뉴 배너
         System.out.println("+——————————————————————————————+");
         System.out.println("|             메뉴              |");
