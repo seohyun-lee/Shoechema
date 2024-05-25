@@ -18,11 +18,11 @@ public class OrderDelete {
         String checkSql = "SELECT shoes_option_id, delivery_status FROM Orders WHERE order_id = ? AND user_id = ?";
 
         try (Connection conn = DatabaseConnection.getConnection();
-             PreparedStatement checkStmt = conn.prepareStatement(checkSql)){
+             PreparedStatement checkPstmt = conn.prepareStatement(checkSql)){
 
-            checkStmt.setInt(1, orderId); // checkSql의 1번째 파라미터 설정 (orderId)
-            checkStmt.setInt(2, userId); // checkSql의 2번째 파라미터 설정 (userId)
-            ResultSet rs = checkStmt.executeQuery(); // SQL 쿼리 실행 및 결과 가져오기
+            checkPstmt.setInt(1, orderId); // checkSql의 1번째 파라미터 설정 (orderId)
+            checkPstmt.setInt(2, userId); // checkSql의 2번째 파라미터 설정 (userId)
+            ResultSet rs = checkPstmt.executeQuery(); // SQL 쿼리 실행 및 결과 가져오기
 
             if (rs.next()) { // order_id와 user_id로 주문이 존재하는 경우
                 String deliveryStatus = rs.getString("delivery_status"); // delivery_status를 변수 deliveryStatus에 저장
@@ -51,15 +51,15 @@ public class OrderDelete {
             // 트랜잭션 시작
             conn.setAutoCommit(false); // 자동 커밋 비활성화
 
-            try (PreparedStatement updateStmt = conn.prepareStatement(deleteSql);
-                 PreparedStatement restoreStmt = conn.prepareStatement(restoreSql)) {
+            try (PreparedStatement deletePstmt = conn.prepareStatement(deleteSql);
+                 PreparedStatement restorePstmt = conn.prepareStatement(restoreSql)) {
 
-                updateStmt.setInt(1, orderId); // updateSql의 1번째 파라미터 설정 (orderId)
-                int affectedRows = updateStmt.executeUpdate();
+                deletePstmt.setInt(1, orderId); // deleteSql의 1번째 파라미터 설정 (orderId)
+                int affectedRows = deletePstmt.executeUpdate();
 
                 if (affectedRows > 0) { // 주문 삭제가 성공한 경우, ShoesOption의 quantity를 복구
-                    restoreStmt.setInt(1, shoesOptionId);
-                    restoreStmt.executeUpdate();
+                    restorePstmt.setInt(1, shoesOptionId);
+                    restorePstmt.executeUpdate();
                     System.out.println("주문이 삭제되었습니다.");
                     conn.commit(); // 모든 작업이 성공했으므로 커밋
                 } else { // 주문 삭제가 실패한 경우
